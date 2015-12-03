@@ -27,7 +27,6 @@ build/Release
 # OS generated files #
 .DS_Store
 ehthumbs.db
-Icon?
 Thumbs.db
 
 # Node Files #
@@ -40,7 +39,6 @@ Thumbs.db
 /tsd_typings/
 
 # Dist #
-/dist
 /public/__build__/
 /src/*/__build__/
 __build__/**

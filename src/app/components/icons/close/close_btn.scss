@@ -1,0 +1,11 @@
+:host,{
+	// The wrapper was defined with a fixed width and height
+// Note, that the pointer-events property is set to 'none'. 
+// We don't need any pointer events in the entire element.
+.menu-icon-wrapper svg path{
+
+    transform: translate(-25px,25px);
+	    stroke-width: 6px;
+}
+
+}

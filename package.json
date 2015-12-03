@@ -1,5 +1,5 @@
 {
-  "name": "Pattern Library",
+  "name": "PatternLibrary",
   "version": "0.0.0",
   "description": "",
   "main": "",
@@ -41,6 +41,7 @@
     "bourbon-neat": "https://github.com/Ao21/neat.git",
     "colorPicker": "git+https://github.com/PitPik/colorPicker.git",
     "d3-ease": "^0.3.0",
+    "gulp-imagemin": "^2.4.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
