@@ -20,7 +20,7 @@ let template = require('./app.html');
   bindings: [ CORE_DIRECTIVES, FORM_DIRECTIVES, ROUTER_DIRECTIVES, Dispatcher ], 
 })
 @RouteConfig([
-  { path: '/', component: Dashboard, as: 'Section' }    
+  { path: '/', component: Section, as: 'Section' }    
 ])
   @View({
    styles: [styles],  
