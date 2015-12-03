@@ -1,0 +1,44 @@
+html, body {
+	font-size: 87.5%;
+}
+
+
+$type-scale: (-1: 0.667rem,0: 1rem,1: 1.5rem, 2: 2.25rem);
+
+$line-height: (
+  -1: $base-line-height / 1.5,
+  0: $base-line-height,
+  1: $base-line-height * 1.5,
+  2: $base-line-height * 2
+);
+
+@function type-scale($level) {
+  @return map-get($type-scale, $level);
+}
+
+@function line-height($level) {
+  @return map-get($line-height, $level);
+}
+
+@mixin type-setting($level: 0) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+
+
+h1, h2, h3, h4, h5, h6, p {
+	font-weight: normal;
+  margin: 0;
+	margin-bottom: $base-line-height;
+}
+h1 {@include type-setting(2);}
+h2 {@include type-setting(1);}
+h3 {@include type-setting(0)}
+h4 {
+  @include type-setting(-1);
+  margin-bottom: $base-line-height / 1.5;
+}
+h5 {}
+h6 {}
+p{@include type-setting(0);}

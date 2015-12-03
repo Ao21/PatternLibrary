@@ -1,0 +1,38 @@
+side-nav.open + section.content {
+	width: calc(100vw - $SideBarWidthExpanded);
+	transform: translate3d($SideBarWidthExpanded -$SideBarWidth, 0, 0)
+}
+section.content {
+	position: absolute;
+	top: $TopNavBarHeight;
+	left: $SideBarWidth;
+	width: calc(100vw - #{$SideBarWidth});
+	transition: 0.25s all;
+	transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	
+	float: left;
+	& > section {
+		float: left;
+		padding: $contentPaddingTop $contentPaddingSides;
+	}
+}
+
+.inset {
+	float: left;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	margin-left: -$contentPaddingSides;
+	padding-left: $contentPaddingSides;
+	margin-right: -$contentPaddingSides;
+	padding-right: $contentPaddingSides;
+}
+
+section.content {
+	section#main.contextBar--isActive{
+		@include span-columns(8);
+	}
+	section#contextualBar{
+		@include shift(1);
+		@include span-columns(3);
+	}
+}

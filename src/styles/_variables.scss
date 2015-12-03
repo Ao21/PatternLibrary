@@ -1,0 +1,31 @@
+// Typography
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.25;
+
+// Colours
+$almostWhite: rgba(243,240,240,0.33);
+$lightGrey: rgba(252,250,253,1);
+$midGrey: rgba(215,216,216,1);
+$grey: rgba(201,200,200,1);
+$darkBlue: rgba(48,56,62,1);
+
+// Top Nav
+$TopNavBarColor: $lightGrey;
+$TopNavBarHeight: 65px;
+
+// Side Nav
+$SideBarWidth: 80px;
+$SideBarWidthExpanded: 140px;
+
+// HTML Code
+$HTMLCodeColor: $darkBlue;
+
+
+// Margins
+$halfMargin: $base-line-height * 0.444;
+$margin: $base-line-height; 
+
+
+// Content
+$contentPaddingTop: 30px;
+$contentPaddingSides: 50px;

@@ -1,0 +1,23 @@
+@import "bourbon";
+@import "neat";
+
+@import "neat-helpers"; 
+ 
+// Change the grid settings 
+$column: modular-scale(3, 1em, $golden) !default;
+$gutter: modular-scale(1, 1em, $golden) !default;
+$grid-columns: 12 !default;
+$max-width: em(1088) !default;
+
+ 
+// Define your breakpoints 
+$tablet: new-breakpoint(max-width 768px 8);
+$mobile: new-breakpoint(max-width 480px 4);
+
+div.container {
+  @include outer-container;
+}
+
+.blue{
+  color: blue;
+}

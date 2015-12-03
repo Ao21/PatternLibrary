@@ -1,0 +1,13 @@
+:host, drop-zone{
+    width:100%;
+	float: left;
+	visibility: visible;
+	&.isVisible{
+		height:50px;
+		float: left;
+		width: 100%;
+		background-color: rgba(0,0,0,0.01);
+		margin-bottom: 22px;
+		border: 2px dashed rgba(0,0,0,0.1);
+	}
+}

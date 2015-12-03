@@ -1,0 +1,85 @@
+@import 'bourbon';
+@import '../../../../styles/variables';
+:host, comments {
+	background-color: $almostWhite;
+	position: relative;
+	.comment {
+		.slot__figure {
+			width: 45px;
+			height: 45px;
+			flex-shrink: 0;
+			border-radius: 50%;
+			margin: 5px 20px 5px 0px;
+			&.slot__figure--noimage {
+				border: 2px dashed $darkBlue;
+				p{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin-left: -4.5px;
+					margin-top:-9px;
+					transform: scale(0);
+					
+				}
+			}
+			img {
+				width: 100%;
+				border-radius: 50%;
+			}
+		}
+		.slot__content {
+			align-self: center;
+			p {
+				margin: 0;
+			}
+			h3 {
+				margin-bottom: $base-line-height * 0.25;
+			}
+		}
+		&:hover {
+			.slot__figure--noimage {
+				animation-name: rotateBorderChange;
+				animation-duration: 0.55s;
+				animation-fill-mode: forwards;
+				p {
+					animation-name: scaleUp;
+					animation-duration: 0.35s;
+					animation-fill-mode: forwards;
+					animation-delay: 0.55s;
+					animation-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);
+				}
+			}
+		}
+	}
+}
+
+@include keyframes(rotateBorderChange) {
+  0% {
+    @include transform(rotate(0));
+	color: white;
+  }
+  50% {
+	   @include transform(rotate(90deg));
+	   color: white;
+	   
+  }
+  to {
+	  border:2px solid $darkBlue;
+  }
+}
+
+@include keyframes(scaleUp) { 
+	from {
+		 @include transform(scale(0));
+	}
+	0% {
+		 @include transform(scale(0));
+	}
+	80% {
+		@include transform(scale(2));
+	}
+	
+	to {
+		@include transform(scale(1));
+	}
+}

@@ -1,0 +1,97 @@
+@import '../../../../styles/variables';
+:host, edit-bar {
+
+		position: relative;
+		float: left;
+		clear: both;
+		margin-left: -35px;
+		transition: 0.75s all;
+		width: 25px;
+		transform: translateZ(0);
+		height: 0px;
+		margin-bottom:0;
+		&.isExtended {
+			width: calc(100% + 50px);
+			margin-bottom: 25px;
+			height: 250px;
+			button { 
+				opacity: 1;
+				
+			}
+			.edit {
+				position: fixed;
+				visibility: hidden;
+				margin-left: 100px;
+				margin-top: 10px;
+			}
+			
+			.close {
+				transform: rotate(180deg);
+				
+				border: 1px solid white;
+				color: white;
+				&:hover {
+					border: 1px solid white;
+					color: white;
+					
+				}
+			}
+			
+			.bar {
+				opacity:1;
+			}
+		}
+		
+		&.isVisible {
+			.edit{
+				opacity: 1;
+			}
+		}
+		.bar {
+			background-color: $midGrey;
+			height: 45px;
+			width: 100%;
+			opacity:0;
+			transform:translateX(-15px);
+			padding: 10px;
+			padding-left: 45px;
+			
+		}
+		button {
+			transition: 0.3s opacity 1s;
+			opacity: 0;
+			margin-top: 3px;
+		}
+		.close {
+			cursor: pointer;
+			transition: 1s all;
+			width: 25px;
+			height: 25px;
+			padding: 3px 9px;
+			border: 1px solid black;
+			color: black;
+			border-radius: 50%;
+			clear: both;
+			float: left;
+			margin-right: 11px;
+			float: right;
+		}
+		.edit {
+			cursor: pointer;
+			width: 25px;
+			height: 25px;
+			padding: 4px 8px;
+			
+			
+			background-color: white;
+			border: 1px solid black;
+			border-radius: 50%;
+			opacity: 0;
+			&:hover {
+				opacity: 1;
+			}
+			
+		}
+		
+	
+}

@@ -1,0 +1,77 @@
+@import '../../../../styles/variables';
+
+:host, historical-view{
+	position: relative;
+    float: left;
+    width: 100%;
+    height: 8rem;
+    margin-bottom: $base-line-height * 1.5;
+	
+	h6 {
+		position: absolute;
+		left: 50%;
+		bottom: -50px;
+		transform: translateX(-50%);
+		text-align: center;
+		color: $darkBlue;
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		top: 43px;
+		left: 0;
+		width: 100%;
+		height: 0px;
+		transform: translate3d(0,-50%,0);
+		
+		border-top: 3px dashed $grey;
+		z-index: -1;
+
+	}
+	
+	.c-historical-view__bar {
+		display: flex;
+		height: 60px * 1.5;
+		float: left;
+		width: 8px;
+		background-color: $grey;
+		
+	}
+	.c-historical-view__events {
+		display: flex;
+    	width: calc(100% - 16px);
+    	float: left;
+		margin-top: 13px;
+		
+	}
+	.c-historical-view__event {
+		position: relative;
+		display: flex;
+		height: 60px;
+		align-items: center;
+		min-width: 65px;
+	}
+	.c-historical-view__event .circle {
+		background-color: $darkBlue;
+		border-radius: 50%;
+		margin: 0 auto;
+		&.c-historical-view__event--size-0{
+			width: 18px * 1.5;
+			height: 18px * 1.5;
+		}	
+		&.c-historical-view__event--size-1{
+			width: 33px * 1.5;
+			height:33px * 1.5;
+		}	
+		&.c-historical-view__event--size-2{
+			width:48px * 1.5 ;
+			height: 46px * 1.5;
+		}	
+		&.last {
+			background-color: white;
+			width: 30px * 1.5;
+			height: 30px * 1.5;
+			border: 2px dashed $grey;
+		}
+	}
+}

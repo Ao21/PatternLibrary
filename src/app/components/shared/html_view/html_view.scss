@@ -1,0 +1,41 @@
+@import '../../../../styles/variables';
+
+:host,
+html-view {
+	width: 100%;
+	float: left;
+	position: relative;
+	margin-bottom: $base-line-height * 1.5;
+	.html_view_tabs {
+		.tab_selector {
+			background-color: #30383e;
+			display: flex;
+			padding: 10px;
+			color: white;
+			height: 30px;
+		}
+		.tab__title {
+			margin-right: $halfMargin;
+			cursor: pointer;
+			h6 {
+				margin: 0;
+				color: white;
+				opacity: 0.25;
+			}
+			&.selected {
+				h6 {
+					opacity:1;
+				}
+			}
+		}
+		
+		.content {
+			padding	: $margin $halfMargin;
+		}
+		
+	}
+	button {
+			float:right;
+			margin-right: $halfMargin;
+		}
+}

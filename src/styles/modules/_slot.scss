@@ -1,0 +1,16 @@
+.slot {
+	@include fill-parent();
+	@include span-columns(12);
+	@include display(flex);
+	@include flex-direction(row);
+	@include justify-content(flex-start);
+	
+	margin-bottom: $base-line-height;
+	
+	.slot--figure {
+		flex-shrink: 0;
+	}
+	.slot--content {
+		
+	}
+}

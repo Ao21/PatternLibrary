@@ -1,0 +1,12 @@
+<h4>Colours used in Pattern Name</h4>
+<div class="l_flex">
+	<div class="l_flex--equal" *ng-for="#colour of colours">
+		<div (click)="displayCopied()" copy-to-clipboard datatocopy="{{colour.hex}}" (mouseenter)="selectColour(colour)" [ng-style]="{'background-color': colour.hex}"
+		class="colour"></div>
+	</div>
+</div>
+<div [ng-style]="{'color': colourHex}" class="colourDescription" *ng-if="colourName">
+	<h4>{{colourName}}</h4>
+	<h5 (click)="displayCopied()" copy-to-clipboard datatocopy="{{colourHex}}">{{colourHex}}</h5>
+	<h6 (click)="displayCopied()" copy-to-clipboard datatocopy="{{colourRGB.r}},{{colourRGB.g}},{{colourRGB.b}}">{{colourRGB.r}},{{colourRGB.g}},{{colourRGB.b}}</h6>
+</div>

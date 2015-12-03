@@ -1,0 +1,22 @@
+@import '../../../../styles/variables';
+:host,
+colour-displayer {
+	.l_flex{
+		float: left;
+		width: 100%;
+		.colour {
+			height:30px;
+		}
+		margin-bottom:$base-line-height;
+	}
+	& > h4 {
+		float: right;
+	}
+	.colourDescription{
+		width: 100%;
+		float: right;
+		h4,h5 {
+			margin-bottom: 3px;
+		}
+	}
+}

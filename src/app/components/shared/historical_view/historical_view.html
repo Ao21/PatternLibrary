@@ -1,0 +1,12 @@
+<div class="c-historical-view__bar"></div>
+<div class="c-historical-view__events">
+	<div *ng-for="#event of data" class="c-historical-view__event">
+		<div class="circle c-historical-view__event--size-{{event.size}}"></div>
+		<h6>{{event.name}}</h6>
+	</div>
+	<div class="c-historical-view__event">
+		<div class="circle last"></div>
+		<h6>+</h6>
+	</div>
+</div>
+<div class="c-historical-view__bar"></div>

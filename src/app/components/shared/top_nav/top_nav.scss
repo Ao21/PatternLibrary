@@ -1,0 +1,16 @@
+@import '../../../../styles/variables';
+
+:host, 
+top-nav {
+	position: fixed;
+	width: 100vw;
+	height: 65px;
+	top: 0;
+	left: 0;
+   
+    z-index: 99999;
+    
+    background-color: #fcfafd;
+    
+    
+}
