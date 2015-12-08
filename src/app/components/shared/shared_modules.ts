@@ -7,6 +7,7 @@ import {Comments} from './comments/comments';
 import {ColourDisplayer} from './colour_displayer/colour_displayer'
 import {FontDisplayer} from './font_displayer/font_displayer';
 import {DropZone} from './drop_zone/drop_zone';
+import {AddPattern} from './add_pattern/add_pattern';
 
 export var SHARED_COMPONENTS: Array<any> = [
 	TopNav,
@@ -17,6 +18,7 @@ export var SHARED_COMPONENTS: Array<any> = [
 	Comments,
 	ColourDisplayer,
 	FontDisplayer,
-	DropZone
+	DropZone,
+	AddPattern
 ]
 

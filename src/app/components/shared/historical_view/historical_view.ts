@@ -12,6 +12,10 @@ let fakeDate = [
 	{ name: '2.1', size: '0' },
 ]
 
+/*
+	<historical-view hover-edit></historical-view>
+*/
+
 @Component({
 	selector: 'historical-view'
 })

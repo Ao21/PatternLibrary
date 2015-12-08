@@ -4,6 +4,10 @@ import { NewComment } from './new_comment';
 let template = require('./comments.html');
 let styles = require('./comments.scss');
 
+/*
+	<comments class="inset"></comments>
+*/
+
 @Component({
 	selector: 'comments'
 })

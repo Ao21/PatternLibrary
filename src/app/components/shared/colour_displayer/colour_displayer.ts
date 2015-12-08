@@ -1,10 +1,16 @@
-import { Component, View, NgStyle } from 'angular2/angular2';
+import { Component, View, NgStyle, OnInit, ElementRef } from 'angular2/angular2';
+import { UIStore } from './../../../stores/stores_modules.ts'
 let template = require('./colour_displayer.html');
 let styles = require('./colour_displayer.scss');
 
+/*	
+ *	Colour Displayer
+ *	<colour-displayer></colour-displayer>
+ */
+
 @Component({
 	selector: 'colour-displayer',
-	inputs: ['colours']
+	inputs: ['data']
 })
 @View({
 	template: template,
@@ -12,15 +18,24 @@ let styles = require('./colour_displayer.scss');
 	directives: [NgStyle]
 })	    
 export class ColourDisplayer  {
+	data: any = null;
 	colours: any;
 	colourName: string;
 	colourHex: string;
 	colourRGB: any;
-	constructor() {
-		this.colours = ['#FC8D8D', '#8DE3FC'];
+	contentRef: ElementRef;
+	
+	constructor(
+		public uiStore: UIStore
+	) {
+		//this.data = null;
+		this.init();
+	}
+	
+	init() {
+		this.colours = this.data ? this.data : ['#333'];
 		this.colours = _.map(this.colours,(col:any)=>{
 			col = new Colors({ color: col });
-			console.log(col);
 			let nCol = {
 				name: '$ColourName',
 				hex: '#' + col.colors.HEX,
@@ -32,6 +47,7 @@ export class ColourDisplayer  {
 			return nCol
 		});
 	}
+	
 	selectColour(colour) {
 		this.colourName= colour.name;
 		this.colourHex= colour.hex;

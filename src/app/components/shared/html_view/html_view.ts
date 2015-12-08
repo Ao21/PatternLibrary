@@ -4,6 +4,9 @@ import { DOM } from 'angular2/src/core/dom/dom_adapter';
 let template = require('./html_view.html');
 let styles = require('./html_view.scss');
 
+/*
+	<html-view></html-view>
+*/
 @Component({
 	selector: 'html-view'
 })
@@ -18,6 +21,5 @@ export class HTMLView {
 	) {}
 	clickToCopy() {
 		console.log(DOM.querySelector(this._el.nativeElement,'.content .selected code').innerText);
-
 	}
 }
