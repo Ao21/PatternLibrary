@@ -1,0 +1,8 @@
+<section id="main" class="">
+	<h1>Add Component</h1>
+	<form-group>
+		<label for="name">Component Url</label>
+		<input #url type="text" placeholder="Enter the url to the component.">
+	</form-group>
+	<button class="btn btn--default" (click)="addComponent(url.value)">Add the component</button>
+</section>
