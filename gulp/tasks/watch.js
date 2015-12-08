@@ -4,7 +4,8 @@ var gulp = require('gulp'),
 	$ = require('gulp-load-plugins')({ lazy: true });
 	 
 	
-gulp.task('watch:ts', function() {
+gulp.task('watch:ts', function () {
+	runSequence('typescript:definitions');
 	$.watch(path.app.ts, function(){
 		runSequence('typescript:definitions')
 	})
