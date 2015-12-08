@@ -1,0 +1,65 @@
+:host, radio-button{
+	$radio-width: 16px !default;
+	$radio-height: $radio-width !default;
+
+	display: block;
+	margin: 15px;
+	white-space: nowrap;
+	cursor: pointer;
+	
+	.md-radio-off {
+		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $radio-width;
+		height: $radio-width;
+		border: solid 2px;
+		border-radius: 50%;
+		transition: border-color ease 0.28s;
+	}
+	
+	
+	.md-radio-on {
+		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $radio-width;
+		height: $radio-width;
+		border-radius: 50%;
+		transition: transform ease 0.28s;
+		transform: scale(0);
+		
+		.md-radio-checked & {
+			transform: scale(0.55);
+		}
+	}
+	
+	.md-radio-container {
+		box-sizing: border-box;
+		position: relative;
+		top: 4px;
+		display: inline-block;
+		width: $radio-width;
+		height: $radio-width;
+		cursor: pointer;
+	}
+
+	.md-radio-label {
+  		position: relative;
+		display: inline-block;
+		margin-left: 10px;
+		margin-right: 10px;
+		vertical-align: middle;
+		white-space: normal;
+		//  pointer-events: none;  ???
+		width: auto;
+	}
+		
+	.radio-root {
+		display: block;
+		cursor: pointer;
+	}
+}
+

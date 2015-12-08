@@ -1,0 +1,9 @@
+<label role="radio" class="radio-root" [class.md-radio-checked]="checked" (click)="select($event)">
+	<div class="md-radio-container">
+		<div class="md-radio-off"></div>
+		<div class="md-radio-on"></div>
+	</div>
+	<div class="md-radio-label">
+		<ng-content></ng-content>
+	</div>
+</label>
