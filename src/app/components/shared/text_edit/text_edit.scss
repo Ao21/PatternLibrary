@@ -1,0 +1,13 @@
+:host,
+text-edit{
+	.c-extend-bar__bar{
+		background-color: black;
+	}
+	#toolbar{
+		height: 50px;
+		
+	}	
+	#editor {
+		height: initial;
+	}
+}

@@ -1,0 +1,15 @@
+<div class="c-extend-bar__open-btn" (click)="openEditor(true)">+</div>
+<div class="c-extend-bar__bar">
+	<div class="c-extend-bar__close-btn" (click)="toggleBar(false)">x</div>
+	<div [class.visible]="isActive" id="toolbar">
+		<select-dropdown (change)="updateSize($event)" class="">
+			<select-item value="10px">Selection 1</select-item>
+			<select-item value="32px">Selection 2</select-item>
+		</select-dropdown>
+		<button class="ql-bold"></button>
+	</div>
+	<div id="editor">
+		<div>Start writing</div>
+	</div>
+</div>
+
