@@ -55,10 +55,11 @@ export class Store {
 		});
 	}
 	
-	push(path:any, item: any):void {
+	push(path:any, item: any, topic?: any):void {
 		this._dispatcher.publish(this._channel, 'push', {
 			path: path,
-			item: item
+			item: item,
+			topic: topic
 		});
 	}
 	
@@ -70,11 +71,13 @@ export class Store {
 	onRemove = (obj: any) => {
 		this._store.unset(obj.prop);
 		this.emitUpdate(obj.topic);
+		
 	}
 	
 	
 	onPush = (obj:any) => {
 		this._store.push(obj.path, obj.item)
+		this.emitUpdate(obj.topic);
 	}
 	
 	unsubscribe(sub:any): void {

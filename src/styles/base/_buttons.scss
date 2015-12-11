@@ -1,7 +1,18 @@
-.btn{}
-.btn--nostyle{
+.btn{
+	border: none;
+	box-shadow: none;
+	clear: both;
+	float: left;
+}
+.btn--nostyle {
 	background-color: transparent;
 	box-shadow: none;
 	border:none;
-	
+}
+
+.btn--default {
+	background-color: #4BB0FF;
+    color: white;
+    padding: 12px 12px;
+    float: right;
 }

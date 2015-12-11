@@ -61,6 +61,7 @@
     "postal": "^1.0.7",
     "prettydiff": "^1.16.0",
     "q": "^1.4.1",
+    "quill": "https://github.com/Ao21/quill.git",
     "reflect-metadata": "0.1.2",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",

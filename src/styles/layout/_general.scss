@@ -9,11 +9,12 @@ section.content {
 	width: calc(100vw - #{$SideBarWidth});
 	transition: 0.25s all;
 	transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	padding: $contentPaddingTop $contentPaddingSides;
 	
 	float: left;
 	& > section {
 		float: left;
-		padding: $contentPaddingTop $contentPaddingSides;
+		
 	}
 }
 
@@ -35,4 +36,8 @@ section.content {
 		@include shift(1);
 		@include span-columns(3);
 	}
+}
+
+section{
+	@include span-columns(12);
 }

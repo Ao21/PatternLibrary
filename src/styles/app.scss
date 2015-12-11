@@ -1,15 +1,18 @@
 @import "variables";
+@import "base/typography";
 @import "grid";
+@import "base/animate";
 @import "base/reset";
 @import "base/buttons";
 @import "base/icons";
-@import "base/typography";
+@import "base/inputs";
 @import "base/utilities";
 @import "layout/general";
 @import "layout/flex";
 @import "library/highlight";
+@import "modules/dragging";
+@import "modules/extend_bar";  
 @import "modules/slot"; 
-@import "modules/dragging"; 
 
 *{
 	

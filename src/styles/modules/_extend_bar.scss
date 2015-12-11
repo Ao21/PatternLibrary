@@ -1,0 +1,81 @@
+.c-extend-bar{
+	position: relative;
+	float: left;
+	clear: both;
+	margin-left: -35px;
+	transition: 0.75s all;
+	width: 25px;
+	transform: translateZ(0);
+	height: 0px;
+	margin-bottom:0;
+}
+
+.c-extend-bar__open-btn{
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	padding: 4px 8px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 50%;
+	opacity: 0;
+	&:hover {
+		opacity: 1;
+	}
+}
+.c-extend-bar__close-btn{
+	cursor: pointer;
+	transition: 1s all;
+	width: 25px;
+	height: 25px;
+	padding: 3px 9px;
+	border: 1px solid black;
+	color: black;
+	border-radius: 50%;
+	clear: both;
+	float: left;
+	margin-right: 11px;
+	float: right;
+}
+.c-extend-bar__bar{
+	background-color: $midGrey;
+	height: 45px;
+	width: 100%;
+	opacity:0;
+	transform:translateX(-15px);
+	padding: 10px;
+	padding-left: 50px;
+}
+
+.c-extend-bar.isExtended {
+	width: calc(100% + 50px);
+	margin-bottom: 25px;
+	min-height: 250px;
+}
+
+.c-extend-bar.isExtended .c-extend-bar__open-btn {
+	position: fixed;
+	visibility: hidden;
+	margin-left: 100px;
+	margin-top: 10px;
+}
+
+.c-extend-bar.isExtended .c-extend-bar__close-btn {
+	transform: rotate(180deg);			
+	border: 1px solid white;
+	color: white;
+	&:hover {
+		border: 1px solid white;
+		color: white;
+	}
+}
+
+.c-extend-bar.isExtended .c-extend-bar__bar {
+	opacity: 1;
+}
+
+.c-extend-bar.isVisible{
+	.c-extend-bar__open-btn {
+		opacity:1;
+	}
+}

@@ -174,13 +174,13 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       'hljs': 'highlight.js',
-      'Scribe': 'scribe-editor',
       '_': 'lodash',
       'Segment': 'segment-js',
       'ease': 'd3-ease',
       'interact': 'interact.js',
-       Baobab: 'baobab',
-      'postal':'postal'
+      Baobab: 'baobab',
+      'postal': 'postal',
+      'Quill': 'quill'
       
     }),
     new OccurenceOrderPlugin(),

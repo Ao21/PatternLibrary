@@ -27,6 +27,11 @@ interface IBaobab {
 	
 }
 
+interface IQuill {
+	(object: any): void;
+}
+
+declare var Quill: IQuill; 
 
 declare var Baobab: IBaobab;
 

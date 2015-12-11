@@ -1,0 +1,32 @@
+form {
+	float: left;
+	width: 100%;
+	margin-bottom: $base-line-height;
+}
+form-group, input, label{
+	float: left;
+	clear: both;
+}
+form-group{
+	margin-bottom: $base-line-height;
+	width: 100%;
+}
+label{
+	margin-bottom: $base-line-height;
+	@include type-setting(0);
+}
+input {
+	clear: both;
+    float: left;
+    border: none;
+	width: 100%;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+	@include type-setting(1);
+	transition: 0.3s border;
+	
+	&:focus{
+		outline: none;
+		border-bottom: 2px solid $blue;
+	}
+}
+

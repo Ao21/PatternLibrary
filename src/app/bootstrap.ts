@@ -6,11 +6,12 @@ require('../styles/app.scss');
  * Providers provided by Angular
  */
 import {bootstrap, FORM_PROVIDERS, ELEMENT_PROBE_PROVIDERS, provide, PLATFORM_DIRECTIVES} from 'angular2/angular2';
-import {ROUTER_PROVIDERS} from 'angular2/router';
+import {ROUTER_PROVIDERS,HashLocationStrategy, LocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
-import {SVGInline, CodeHighlight, ScribeEdit,CopyToClipboard} from './directives/directives_modules';
+import {SVGInline, CodeHighlight,CopyToClipboard} from './directives/directives_modules';
 import {APP_STORES} from './stores/stores_modules.ts'
+import {APP_SERVICES} from './services/services_modules';
 import {COMMON_PROVIDERS} from './common/common_modules.ts'
 
 /*
@@ -27,12 +28,13 @@ bootstrap(App, [
 // These are dependencies of our App
   FORM_PROVIDERS,
   ROUTER_PROVIDERS,
+  provide(LocationStrategy, {useClass: HashLocationStrategy}),
   HTTP_PROVIDERS,
   ELEMENT_PROBE_PROVIDERS,
+  APP_SERVICES,
   COMMON_PROVIDERS,
   APP_STORES,
   provide(PLATFORM_DIRECTIVES, { useValue: SVGInline, multi: true }),
   provide(PLATFORM_DIRECTIVES, { useValue: CodeHighlight, multi: true }),
-  provide(PLATFORM_DIRECTIVES, { useValue: ScribeEdit, multi: true }),
   provide(PLATFORM_DIRECTIVES, { useValue: CopyToClipboard, multi: true })
 ]);
