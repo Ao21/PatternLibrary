@@ -1,8 +1,8 @@
 <section id="main" class="">
 	<div *ng-for="#section of sections">
 		<edit-bar></edit-bar>
-		<component-loader *ng-if="section.type=='component'" hover-edit [loader]="section.name" [data]="section.data"></component-loader>
-		<pattern-loader *ng-if="section.type=='pattern'" [loader]="section"></pattern-loader>
+		<component-loader *ng-if="section.type=='component'" hover-edit [loader]="section.ref" [data]="section.data"></component-loader>
+		<pattern-loader *ng-if="section.type=='pattern'" [loader]="section.ref"></pattern-loader>
 	</div>
 </section>
 
