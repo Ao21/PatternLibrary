@@ -1,20 +1,20 @@
-import { Component, View, OnInit, DynamicComponentLoader, Injector, provide, Renderer, ElementRef, ComponentRef } from 'angular2/angular2';
+import { FORM_DIRECTIVES, NgForm, Component, View, OnInit, DynamicComponentLoader, Injector, provide, Renderer, ElementRef, ComponentRef } from 'angular2/angular2';
 import {ObservableWrapper, Promise, PromiseWrapper} from 'angular2/src/facade/async';
 import { Http } from 'angular2/http';
 
-import * as BaseModules from './../base_modules.ts';
 import {SHARED_COMPONENTS} from './../../shared/shared_modules.ts';
-let template = require('./component_loader.html');
+let template = require('./form_loader.html');
 
 @Component({
-	selector: 'component-loader',
-	inputs: ['loader', 'data']
+	selector: 'form-loader',
+	inputs: ['loader', 'data', 'control']
 })
-    
 @View({
 	template: template,
+	directives: [SHARED_COMPONENTS, FORM_DIRECTIVES]
 })
-export class ComponentLoader implements OnInit {
+export class FormLoader implements OnInit {
+	form: NgForm;
 	loader: string;
 	data: any;
 
