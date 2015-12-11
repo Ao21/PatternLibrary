@@ -8,6 +8,9 @@ import {ColourDisplayer} from './colour_displayer/colour_displayer'
 import {FontDisplayer} from './font_displayer/font_displayer';
 import {DropZone} from './drop_zone/drop_zone';
 import {AddPattern} from './add_pattern/add_pattern';
+import {AddComponent} from './add_component/add_component.ts';
+import {FormComponent} from './form_component/form_component.ts';
+import {TextEdit} from './text_edit/text_edit';
 
 export var SHARED_COMPONENTS: Array<any> = [
 	TopNav,
@@ -19,6 +22,9 @@ export var SHARED_COMPONENTS: Array<any> = [
 	ColourDisplayer,
 	FontDisplayer,
 	DropZone,
-	AddPattern
+	AddPattern,
+	AddComponent,
+	FormComponent,
+	TextEdit
 ]
 

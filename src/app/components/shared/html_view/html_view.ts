@@ -8,7 +8,8 @@ let styles = require('./html_view.scss');
 	<html-view></html-view>
 */
 @Component({
-	selector: 'html-view'
+	selector: 'html-view',
+	inputs: ['data']
 })
 @View({
 	template: template,

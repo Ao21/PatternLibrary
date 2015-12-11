@@ -9,7 +9,7 @@ let styles = require('./font_displayer.scss');
 
 @Component({
 	selector: 'font-displayer',
-	inputs: ['fonts']
+	inputs: ['data']
 })
 @View({
 	template: template,

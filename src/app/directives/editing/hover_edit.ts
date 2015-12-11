@@ -2,6 +2,13 @@ import {Directive, ElementRef} from 'angular2/angular2';
 import {DOM} from 'angular2/src/core/dom/dom_adapter';
 import * as Rx from '@reactivex/rxjs';
 
+/*
+
+	<edit-bar></edit-bar>
+	<div class="text" hover-edit>
+		<p></p>
+	</div>
+*/
 
 @Directive({
 	selector: '[hover-edit]'
