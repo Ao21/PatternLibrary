@@ -1,0 +1,9 @@
+@import './../../../../styles/_variables.scss';
+
+:host,
+pattern-loader
+{
+	float:left;
+	width:100%;
+	transform:translateZ(0);
+}

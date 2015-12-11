@@ -4,8 +4,8 @@ import { DOM } from 'angular2/src/core/dom/dom_adapter';
 import { PlaceHolder } from '../placeholder_component/placeholder_component';
 import { PatternService, AssetsService } from './../../../services/services_modules';
 
-
 let template = require('./pattern_loader.html');
+let styles = require('./pattern_loader.scss');
 @Component({
 	selector: 'pattern-loader',
 	inputs: ['loader']
@@ -13,7 +13,7 @@ let template = require('./pattern_loader.html');
 @View({
 	template: template,
 	encapsulation: ViewEncapsulation.None,
-	styles: [':host,pattern-loader{float:left;width:100%}']
+	styles: [styles]
 })
 export class PatternLoader implements OnInit {
 	loader: any;
@@ -24,9 +24,9 @@ export class PatternLoader implements OnInit {
 		public renderer: Renderer,
 		public http: Http
 	) {
-		
-		
-		
+
+
+
 		this.http.get('http://localhost:8080/api/' + 'pattern').subscribe(
 			res=> {
 				console.log(res.json());
@@ -48,25 +48,28 @@ export class PatternLoader implements OnInit {
 		);
 
 	}
-	
+
 	onInit() {
-		var pattern = this.patternService._patternsDict[this.loader.name];
+		var pattern = this.patternService._patternsDict[this.loader];
 		var shadow = this.el.nativeElement.createShadowRoot();
-		console.log(pattern)
 		var template = document.createElement(pattern.dom);
 		var styles = DOM.createStyleElement(pattern.file);
 		template.innerHTML = pattern.data[0].markup.example;
-		_.forEach(pattern.data[0].assets, (e) => {
-			var style = DOM.createStyleElement(this.assetsService.getAsset(e).data);
-			shadow.appendChild(style);
-		})    
-		shadow.appendChild(styles);
-		shadow.appendChild(template);
+		this.assetsService.generateAssets().then(assets=> {
+			console.log(assets);
+			_.forEach(pattern.data[0].assets, (e) => {
+				var style = DOM.createStyleElement(assets[e].data);
+				shadow.appendChild(style);
+			})
+			shadow.appendChild(styles);
+			shadow.appendChild(template);
+		})
+
 	}
 
 	createComponent(res) {
 		console.log(PlaceHolder);
-	
+
 
 	}
 }
