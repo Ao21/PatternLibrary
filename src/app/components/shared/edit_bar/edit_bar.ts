@@ -10,6 +10,7 @@ let styles = require('./edit_bar.scss');
 @Component({
 	selector: 'edit-bar',
 	host: {
+		'[class.c-extend-bar]':'true',
 		'[class.isExtended]': 'isExtended'
 	}
 })
