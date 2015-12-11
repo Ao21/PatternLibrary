@@ -4,14 +4,14 @@ import {Store, Dispatcher} 		from '../common/common_modules';
 let monkey: any = Baobab.monkey;
 
 export class Component {
-	name: String;
+	ref: String;
 	type: String;
 	data: any;
 }
 
 export class Section {
 	components: [Component] = [{
-		name: 'ColourDisplayer',
+		ref: 'ColourDisplayer',
 		type: 'component',
 		data: ['#8DE3FC', '#8DE3FC'],
 	}]
@@ -27,12 +27,12 @@ export class SectionStore extends Store {
 
 	addPattern(pattern) {
 		var obj = {
-			name: pattern.ref,
+			ref: pattern.ref,
 			type: 'pattern',
 			dom:'discount-code'
 		}
 		var comp = {
-			name: 'ColourDisplayer',
+			ref: 'ColourDisplayer',
 			type: 'component',
 			data: ['#8DE3FC', '#8DE3FC'],
 		}
