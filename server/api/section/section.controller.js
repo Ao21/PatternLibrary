@@ -1,4 +1,5 @@
 var Section = require('./section.model');
+var _ = require('lodash');
 
 exports.index = function (req, res) {
 	Section.find({}, function (err, sections) {
@@ -27,8 +28,13 @@ exports.add = function (req, res) {
 	})
 }
 
-exports.update = function(req, res) {
-	Section.update(req.body.query, req.body.update, function(err, section) {
-		res.send(section);
+exports.update = function (req, res) {
+	
+	Section.update(req.body.query, req.body.update, function (err, doc) {
+		Section.findOne(req.body.query, function (err, doc) { 
+			res.send(doc);
+		})
 	})
+
+	
 }

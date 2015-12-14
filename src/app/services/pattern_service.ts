@@ -27,6 +27,7 @@ export class PatternService {
 		return this.http.get(this.url).subscribe(
 			res => {
 				_.forEach(res.json(), (e) => {
+					console.log(e);
 					this._patternsDict[e.ref] = e;
 				})
 				this._patterns = res.json();

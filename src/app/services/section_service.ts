@@ -1,10 +1,11 @@
-import { Inject, Injectable, Component} from 'angular2/core';
+import { Inject,Optional, Injectable, Component} from 'angular2/core';
 import {PromiseWrapper, Promise, PromiseCompleter} from 'angular2/src/facade/async';
 import { Http, Headers } from 'angular2/http';
+import {SectionStore} from './../stores/stores_modules';
 
-export class Section{
+export interface Section{
 	name: string;
-	url: string;
+	url?: string;
 }
 
 @Injectable()
@@ -13,7 +14,9 @@ export class SectionService {
 	url: string = 'http://localhost:8080/api/section';
 	
 
-	constructor(public http: Http) {
+	constructor(
+		public http: Http
+	) {
 		
 	}
 	
@@ -33,6 +36,19 @@ export class SectionService {
 				
 			}
 		)
+	}
+	
+	update(id: string, section: Section) {
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		let obj = {
+			query: {
+				'_id':id
+			},
+			update: section
+		}
+		return this.http.post(`${this.url}/${id}`, JSON.stringify(obj), { headers: headers });
+		
 	}
 
 }

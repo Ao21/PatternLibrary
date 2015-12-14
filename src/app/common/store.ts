@@ -108,6 +108,10 @@ export class Store {
 		return sub;
 	}
 	
+	exists(path) {
+		return this._store.exists(path);
+	}
+	
 	
 
 }

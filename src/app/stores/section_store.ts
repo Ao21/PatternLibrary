@@ -11,6 +11,7 @@ export class Component {
 }
 
 export class Section {
+	activeSection: Section;
 	components: [Component] = [{
 		ref: 'ColourDisplayer',
 		type: 'component',
@@ -32,11 +33,20 @@ export class SectionStore extends Store {
 		)
 	}
 	
+	getSection(url) {
+		let observable = this.sectionService.get(url);
+		observable.subscribe(res=> {
+			this.update('activeSection', res.json(),'section');
+		})
+		return observable;
+	}
+	
 	getSections() {
 		
 	}
 
-	addPattern(pattern) {
+	addPattern(pattern, index) {
+		
 		var obj = {
 			ref: pattern.ref,
 			type: 'pattern',
@@ -47,7 +57,22 @@ export class SectionStore extends Store {
 			type: 'component',
 			data: ['#8DE3FC', '#8DE3FC'],
 		}
-		this.push(['components'], obj, 'section')
+		
+		let activeSection = this.get('activeSection');
+		if (!this.exists(['activeSection','data'])) {
+			this.update(['activeSection', 'data'], [obj]);
+		} else {
+			this.push(['activeSection', 'data'], obj);
+		}
+
+		
+		this.sectionService.update(activeSection._id, this.get('activeSection')).subscribe(
+			res => {
+				this.update('activeSection', res.json(), 'section');
+			}
+		);
+		
+		//this.push(['components'], obj, 'section')
 	}
 
 }

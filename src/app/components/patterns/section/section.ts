@@ -31,7 +31,7 @@ export class Section {
 		public patternService: PatternService
 	) {
 		
-		this.SectionService.get(this.routeParams.params['url']).subscribe(
+		this.sectionStore.getSection(this.routeParams.params['url']).subscribe(
 			res => {
 				this.section = res.json();
 			},
@@ -41,6 +41,9 @@ export class Section {
 		)
 		this.fakeData = ['#8DE3FC', '#8DE3FC'];
 		this.sub = this.sectionStore.subscribe('section', state=> {
+			if (state.get('activeSection')) {
+				this.section = state.get('activeSection');
+			}
 			this.sections = state.get('components');
 		})
 		

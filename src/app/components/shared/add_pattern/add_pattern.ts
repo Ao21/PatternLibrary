@@ -28,7 +28,7 @@ export class AddPattern implements OnInit {
 	}
 	
 	addPattern(pattern) {
-		this.sectionStore.addPattern(pattern);
+		this.sectionStore.addPattern(pattern, this.index);
 	}
 	
 	ngOnInit() {
