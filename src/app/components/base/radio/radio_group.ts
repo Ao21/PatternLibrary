@@ -8,7 +8,7 @@ Attribute,
 Optional,
 OnChanges,
 OnInit
-} from 'angular2/angular2';
+} from 'angular2/core';
 import {isPresent, StringWrapper, NumberWrapper} from 'angular2/src/facade/lang';
 import {ObservableWrapper, EventEmitter} from 'angular2/src/facade/async';
 import {Event, KeyboardEvent} from 'angular2/src/facade/browser';
@@ -88,7 +88,7 @@ export class RadioGroup implements OnChanges {
     this.disabled_ = isPresent(value) && value !== false;
   }
 
-  onChanges(_) {
+  ngOnChanges(_) {
     // If the component has a disabled attribute with no value, it will set disabled = ''.
     this.disabled = isPresent(this.disabled) && this.disabled !== false;
 
@@ -111,7 +111,7 @@ export class RadioGroup implements OnChanges {
     this.selectedRadioId = id;
     this.activedescendant = id;
     ObservableWrapper.callNext(this.change, null);
-    this.onChanges(this);
+    this.ngOnChanges(this);
   }
   /** Registers a child radio button with this group. */
   register(radio: RadioButton) {

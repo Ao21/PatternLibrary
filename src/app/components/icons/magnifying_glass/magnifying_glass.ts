@@ -1,4 +1,4 @@
-import { Component, View, ElementRef, OnInit } from 'angular2/angular2';
+import { Component, View, ElementRef, OnInit } from 'angular2/core';
 let template = require('./magnifying_glass.html');
 let styles = require('./magnifying_glass.scss');
 
@@ -75,6 +75,6 @@ export class MagGlass implements OnInit {
 
 	}
 	
-	onInit() {}
+	ngOnInit() {}
 
 }

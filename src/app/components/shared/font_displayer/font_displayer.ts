@@ -1,4 +1,4 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
 let template = require('./font_displayer.html');
 let styles = require('./font_displayer.scss');
 

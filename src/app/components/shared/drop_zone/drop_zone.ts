@@ -1,4 +1,4 @@
-import { Component, View, ElementRef } from 'angular2/angular2';
+import { Component, View, ElementRef } from 'angular2/core';
 import {UIStore} from './../../../stores/stores_modules.ts'
 let template = require('./drop_zone.html');
 let styles = require('./drop_zone.scss');

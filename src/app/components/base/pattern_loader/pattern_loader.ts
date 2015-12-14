@@ -1,6 +1,6 @@
-import { Component, View, Renderer, OnInit, Injector, ElementRef, ViewEncapsulation } from 'angular2/angular2';
+import { Component, View, Renderer, OnInit, Injector, ElementRef, ViewEncapsulation } from 'angular2/core';
 import { Http } from 'angular2/http';
-import { DOM } from 'angular2/src/core/dom/dom_adapter';
+import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import { PlaceHolder } from '../placeholder_component/placeholder_component';
 import { PatternService, AssetsService } from './../../../services/services_modules';
 
@@ -49,14 +49,13 @@ export class PatternLoader implements OnInit {
 
 	}
 
-	onInit() {
+	ngOnInit() {		
 		var pattern = this.patternService._patternsDict[this.loader];
 		var shadow = this.el.nativeElement.createShadowRoot();
 		var template = document.createElement(pattern.dom);
 		var styles = DOM.createStyleElement(pattern.file);
 		template.innerHTML = pattern.data[0].markup.example;
 		this.assetsService.generateAssets().then(assets=> {
-			console.log(assets);
 			_.forEach(pattern.data[0].assets, (e) => {
 				var style = DOM.createStyleElement(assets[e].data);
 				shadow.appendChild(style);

@@ -1,4 +1,4 @@
-import { Component, View, OnInit, DynamicComponentLoader, Injector, provide, Renderer, ElementRef, ComponentRef } from 'angular2/angular2';
+import { Component, View, OnInit, DynamicComponentLoader, Injector, provide, Renderer, ElementRef, ComponentRef } from 'angular2/core';
 import {ObservableWrapper, Promise, PromiseWrapper} from 'angular2/src/facade/async';
 import { Http } from 'angular2/http';
 
@@ -28,7 +28,7 @@ export class ComponentLoader implements OnInit {
 	) { }
 
 
-	onInit() {
+	ngOnInit() {
 		let comp = _.find(SHARED_COMPONENTS, (e) => {
 			return e.name === this.loader;
 		})

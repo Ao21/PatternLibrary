@@ -9,11 +9,10 @@ Attribute,
 Optional,
 OnChanges,
 OnInit,
-NgFor,
-NgFormControl,
-FORM_DIRECTIVES,
 EventEmitter,
-} from 'angular2/angular2';
+} from 'angular2/core';
+
+import {FORM_DIRECTIVES,NgFor,NgFormControl} from 'angular2/common'
 
 import {isPresent, isBlank, StringWrapper, NumberWrapper} from 'angular2/src/facade/lang';
 import {ObservableWrapper} from 'angular2/src/facade/async';

@@ -12,9 +12,10 @@ import {
   fakeAsync,
   TestComponentBuilder,
   tick
+
 } from 'angular2/testing';
-import { Component, provide} from 'angular2/angular2';
-import {MockBackend, BaseRequestOptions, Http} from 'angular2/http';
+import { Component, provide} from 'angular2/core';
+import { BaseRequestOptions, Http} from 'angular2/http';
 
 // Load the implementations that should be tested
 import { App } from '../../src/app/app';
@@ -43,12 +44,11 @@ describe('App', () => {
   beforeEachProviders(() => [
     App,
     BaseRequestOptions,
-    MockBackend,
     provide(Http, {useFactory:
       function(backend, defaultOptions) {
         return new Http(backend, defaultOptions);
       },
-      deps: [MockBackend, BaseRequestOptions]})
+      deps: [BaseRequestOptions]})
   ]);
 
   it('should have a title', inject([App], (app) => {

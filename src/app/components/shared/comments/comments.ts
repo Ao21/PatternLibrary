@@ -1,4 +1,4 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
 import { Comment } from './comment';
 import { NewComment } from './new_comment';
 let template = require('./comments.html');

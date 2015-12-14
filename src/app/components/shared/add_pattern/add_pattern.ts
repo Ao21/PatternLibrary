@@ -1,4 +1,4 @@
-import { Component, View, OnInit } from 'angular2/angular2';
+import { Component, View, OnInit } from 'angular2/core';
 import {PatternService} from './../../../services/pattern_service.ts';
 import {SectionStore} from './../../../stores/stores_modules';
 let template = require('./add_pattern.html');
@@ -6,6 +6,7 @@ let styles = require('./add_pattern.scss');
 
 @Component({
 	selector: 'add-pattern',
+	inputs: ['index'],
 	host: {
 		"[class.isextended]":"isExtended"
 	}
@@ -18,6 +19,7 @@ let styles = require('./add_pattern.scss');
 export class AddPattern implements OnInit {
 	patterns: any;
 	isExtended: boolean;
+	index: any;
 	constructor(
 		public patternService: PatternService,
 		public sectionStore: SectionStore
@@ -29,7 +31,7 @@ export class AddPattern implements OnInit {
 		this.sectionStore.addPattern(pattern);
 	}
 	
-	onInit() {
+	ngOnInit() {
 		setTimeout(() => {
 			this.isExtended = true;
 		},300)

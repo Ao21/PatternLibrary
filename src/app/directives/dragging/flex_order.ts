@@ -1,4 +1,4 @@
-import {Directive, Attribute, ElementRef, Renderer} from 'angular2/angular2';
+import {Directive, Attribute, ElementRef, Renderer} from 'angular2/core';
 @Directive({
 	selector: '[flex-order]',
 	inputs: ['order']

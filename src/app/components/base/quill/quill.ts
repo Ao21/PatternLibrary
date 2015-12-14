@@ -1,5 +1,5 @@
-import { Component, View, ElementRef } from 'angular2/angular2';
-import { DOM } from 'angular2/src/core/dom/dom_adapter';
+import { Component, View, ElementRef } from 'angular2/core';
+import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 let template = require('./quill.html');
 let styles = require('./quill.scss');
 

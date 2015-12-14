@@ -1,5 +1,5 @@
-import {Directive, ElementRef} from 'angular2/angular2';
-import {DOM} from 'angular2/src/core/dom/dom_adapter';
+import {Directive, ElementRef, Renderer} from 'angular2/core';
+import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import * as Rx from '@reactivex/rxjs';
 
 /*
@@ -17,20 +17,22 @@ import * as Rx from '@reactivex/rxjs';
 export class HoverEdit {
 	timeout: any;
 	constructor(
-		private _el: ElementRef
+		private _el: ElementRef,
+		private _renderer: Renderer
 	) {
-		(<any>Rx).Observable.fromEvent(this._el.nativeElement, 'mouseover').subscribe(e=> {
-			DOM.addClass(this._el.nativeElement.previousElementSibling, 'isVisible');
-			if (this.timeout) {
-				clearTimeout(this.timeout);
-			}
-		
+		let element = this._renderer.getNativeElementSync(this._el);
+
+		(<any>Rx).Observable.fromEvent(element, 'mouseover').subscribe(e=> {
+			this._renderer.setElementClass(this._el,'hoverIsVisible',true);
+				if (this.timeout) {
+					clearTimeout(this.timeout);
+				}
+
 		});
 		
-		(<any>Rx).Observable.fromEvent(this._el.nativeElement.previousElementSibling, 'mouseout').subscribe(e=> {
+		(<any>Rx).Observable.fromEvent(element, 'mouseout').subscribe(e=> {
 			setTimeout(() => {
-				DOM.removeClass(this._el.nativeElement.previousElementSibling, 'isVisible');
-				
+				this._renderer.setElementClass(this._el,'hoverIsVisible',false);
 			}, 700)
 			
 		});

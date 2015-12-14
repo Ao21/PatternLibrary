@@ -1,4 +1,4 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
 import { ComponentStore } from './../../../stores/stores_modules.ts';
 let template = require('./add_component.html');
 let styles = require('./add_component.scss');

@@ -1,6 +1,6 @@
-import { Component, View, ElementRef } from 'angular2/angular2';
+import { Component, View, ElementRef } from 'angular2/core';
 import { Tab, TabsGroup } from '../../base/base_modules';
-import { DOM } from 'angular2/src/core/dom/dom_adapter';
+import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 let template = require('./html_view.html');
 let styles = require('./html_view.scss');
 

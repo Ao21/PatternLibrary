@@ -1,4 +1,4 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
 import {AddPattern} from './../add_pattern/add_pattern.ts';
 let template = require('./edit_bar.html');
 let styles = require('./edit_bar.scss');
@@ -9,6 +9,7 @@ let styles = require('./edit_bar.scss');
 */
 @Component({
 	selector: 'edit-bar',
+	inputs: ['index'],
 	host: {
 		'[class.c-extend-bar]':'true',
 		'[class.isExtended]': 'isExtended'
@@ -21,6 +22,7 @@ let styles = require('./edit_bar.scss');
 })	    
 export class EditBar {
 	isExtended: boolean = false;
+	index: any;
 	constructor() {
 		
 	}

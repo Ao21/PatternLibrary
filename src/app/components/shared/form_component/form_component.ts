@@ -1,4 +1,4 @@
-import { Component, View, Host } from 'angular2/angular2';
+import { Component, View, Host, OnInit } from 'angular2/core';
 import {
 NgFormModel,
 Control,
@@ -25,17 +25,16 @@ let styles = require('./form_component.scss');
   styles: [styles],
   directives: [FORM_DIRECTIVES]
 })
-export class FormComponent {
+export class FormComponent implements OnInit{
   model: any;
   formDir: NgFormModel;
   control: any;
   controlPath: string;
-  constructor(
+  constructor (
     @Host() formDir: NgFormModel) {
     this.formDir = formDir
   }
-  onInit() {
+  ngOnInit() {
     this.control = this.formDir.form.controls[this.controlPath];
-    console.log(this.control);
   }
 }

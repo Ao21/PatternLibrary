@@ -1,4 +1,4 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
 import {RouteParams, Router, OnActivate} from 'angular2/router';
 import {PatternService} from './../../../services/services_modules.ts';
 import {BASE_COMPONENTS } from '../../../components/base/base_modules';
@@ -35,7 +35,7 @@ export class PatternPage implements OnActivate {
 		
 	}	
 	
-	onActivate() {
+	routerOnActivate() {
 		
 	}
 }

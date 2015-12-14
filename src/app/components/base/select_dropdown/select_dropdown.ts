@@ -1,4 +1,4 @@
-import {Component, View, Query, QueryList, OnInit, ElementRef, EventEmitter } from 'angular2/angular2';
+import {Component, View, Query, QueryList, OnInit, ElementRef, EventEmitter } from 'angular2/core';
 import {SelectItem} from './select_item';
 let template = require('./select_dropdown.html');
 let styles = require('./select_dropdown.scss');
@@ -42,7 +42,7 @@ export class SelectDropdown implements OnInit {
 		return this._disabled;
 	}
 
-	onInit() {
+	ngOnInit() {
 		this.value = this.placeholder ? this.placeholder : 'Select';
 	}
 

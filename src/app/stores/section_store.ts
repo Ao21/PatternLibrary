@@ -1,4 +1,4 @@
-import {Inject, Injectable} 	from 'angular2/angular2';
+import {Inject, Injectable} 	from 'angular2/core';
 import {Store, Dispatcher} 		from '../common/common_modules';
 
 let monkey: any = Baobab.monkey;

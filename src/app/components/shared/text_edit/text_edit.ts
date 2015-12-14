@@ -1,5 +1,5 @@
-import { Component, View, ElementRef } from 'angular2/angular2';
-import { DOM } from 'angular2/src/core/dom/dom_adapter';
+import { Component, View, ElementRef } from 'angular2/core';
+import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import { isPresent} from 'angular2/src/facade/lang';
 import {SelectDropdown, SelectItem} from './../../base/base_modules.ts';
 let template = require('./text_edit.html');

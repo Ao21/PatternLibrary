@@ -69,7 +69,7 @@ module.exports = {
       'zone.js',
       'reflect-metadata',
       // to ensure these modules are grouped together in one file
-      'angular2/angular2',
+      'angular2/common',
       'angular2/core',
       'angular2/router',
       'angular2/http'

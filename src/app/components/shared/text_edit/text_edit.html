@@ -2,7 +2,7 @@
 <div class="c-extend-bar__bar">
 	<div class="c-extend-bar__close-btn" (click)="closeEditor()">x</div>
 	<div [class.visible]="isActive" id="toolbar">
-		<select-dropdown *ng-if="isExtended" (change)="updateSize($event)" class="dropdown--menu" >
+		<select-dropdown *ngIf="isExtended" (change)="updateSize($event)" class="dropdown--menu" >
 			<select-item value="10px">Selection 1</select-item>
 			<select-item value="32px">Selection 2</select-item>
 		</select-dropdown>

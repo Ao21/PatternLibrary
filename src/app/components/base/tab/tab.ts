@@ -1,6 +1,6 @@
-import {Component, View, Inject, NgClass, NgIf, NgControl, EventEmitter, Attribute, OnInit, Renderer, ElementRef} from 'angular2/angular2';
-import {Optional, SkipSelf, Host} from 'angular2/angular2'
-import {FORM_DIRECTIVES, CORE_DIRECTIVES, NgFormModel} from 'angular2/angular2';
+import {Component, View, Inject, EventEmitter, Attribute, OnInit, Renderer, ElementRef} from 'angular2/core';
+import {Optional, SkipSelf, Host} from 'angular2/core'
+import {FORM_DIRECTIVES,NgClass, NgIf, NgControl, CORE_DIRECTIVES, NgFormModel} from 'angular2/common';
 import {NumberWrapper} from 'angular2/src/facade/lang';
 import {isPresent} from 'angular2/src/facade/lang';
 
@@ -72,7 +72,7 @@ export class Tab implements OnInit {
 		
 	}
 
-	onInit(): void {
+	ngOnInit(): void {
 		if (isPresent(this.tabsGroup)) {
 			this.name = this.tabsGroup.getName();
 		}

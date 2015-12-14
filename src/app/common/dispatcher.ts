@@ -1,5 +1,4 @@
-import { Component } from 'angular2/angular2';
-import { Injectable } from 'angular2/angular2';
+import { Component,Injectable } from 'angular2/core';
 import * as Postal from 'postal';
 
 @Injectable()

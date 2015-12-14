@@ -1,4 +1,4 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
 let template = require('./dashboard.html');
 let styles = require('./dashboard.scss');
 import {CloseBtn, MagGlass } from '../../icons/icons_modules';

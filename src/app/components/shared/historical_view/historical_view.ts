@@ -1,4 +1,4 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
 let template = require('./historical_view.html');
 let styles = require('./historical_view.scss');
 

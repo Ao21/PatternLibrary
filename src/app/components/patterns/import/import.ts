@@ -1,4 +1,5 @@
-import { Component, View , ControlGroup, FormBuilder, NgForm} from 'angular2/angular2';
+import { Component, View} from 'angular2/core';
+import { ControlGroup, FormBuilder, NgForm, FORM_DIRECTIVES, NgFormModel} from 'angular2/common';
 import { BASE_COMPONENTS} from './../../base/base_modules.ts';
 import { SHARED_COMPONENTS } from './../../shared/shared_modules.ts';
 let template = require('./import.html');

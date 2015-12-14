@@ -1,5 +1,5 @@
 <div class="tab_selector">
-	<div class="tab__title" *ng-for="#tab of tabs;#i = index" (click)="select(tab)" [class.selected]="tab.isSelected">
+	<div class="tab__title" *ngFor="#tab of tabs;#i = index" (click)="select(tab)" [class.selected]="tab.isSelected">
 		<h6>{{tab.value}}</h6>
 	</div>
 </div>

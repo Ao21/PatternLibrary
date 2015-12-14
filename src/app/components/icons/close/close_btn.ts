@@ -1,4 +1,4 @@
-import { Component, View, ElementRef, OnInit } from 'angular2/angular2';
+import { Component, View, ElementRef, OnInit } from 'angular2/core';
 let template = require('./close_btn.html');
 let styles = require('./close_btn.scss');
 
@@ -51,6 +51,6 @@ export class CloseBtn implements OnInit {
 
 	}
 	
-	onInit() {}
+	ngOnInit() {}
 
 }

@@ -2,10 +2,11 @@ var Assets = require('./assets.model');
 var q = require('q');
 var fs = require('fs');
 
-
-// Assets.create({})
-// getFile('/Users/ronanbrett/Work/AA/uiMembership/styleguide/styles/bootstrap.css').then(function (e) {
-// 	Assets.create({name: 'bootstrap', data: e}, function(err, result){})
+// Assets.create({});
+// getFile('/Users/brettr/Development/repos/uiMembership/styleguide/styles/base.css').then(function (e) {
+// 	Assets.create({name: 'base', data: e}, function(err, result){
+// 		console.log(result);
+// 	})
 // })
 
 exports.index = function (req, res) {
