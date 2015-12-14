@@ -17,7 +17,7 @@ let styles = require('./form_component.scss');
 
 @Component({
   selector: 'form-component',
-  inputs: ['controlPath: control' ],
+  inputs: ['controlPath: control','placeholder','type'],
   providers: []
 })
 @View({
@@ -30,9 +30,10 @@ export class FormComponent implements OnInit{
   formDir: NgFormModel;
   control: any;
   controlPath: string;
+  placeholder: string = "";
   constructor (
     @Host() formDir: NgFormModel) {
-    this.formDir = formDir
+    this.formDir = formDir;
   }
   ngOnInit() {
     this.control = this.formDir.form.controls[this.controlPath];
