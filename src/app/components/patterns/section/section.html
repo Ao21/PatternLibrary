@@ -1,9 +1,14 @@
 <section id="main" class="">
-	<div *ngFor="#section of sections, #i = index" hover-edit>
-		<edit-bar [index]="i"></edit-bar>
-		<component-loader *ngIf="section.type=='component'" [loader]="section.ref" [data]="section.data"></component-loader>
-		<pattern-loader *ngIf="section.type=='pattern'" [loader]="section.ref"></pattern-loader>
+	<h1>{{section.name}}</h1>
+	<div *ngIf="!section.data" hover-edit>
+		<p>You haven't added any components or patterns yet.</p>
 	</div>
+	<div *ngFor="#entry of section.data, #i = index" hover-edit>
+		<edit-bar [index]="i"></edit-bar>
+		<component-loader *ngIf="entry.type=='component'" [loader]="entry.ref" [data]="entry.data"></component-loader>
+		<pattern-loader *ngIf="entry.type=='pattern'" [loader]="section.ref"></pattern-loader>
+	</div>
+	
 </section>
 
 
