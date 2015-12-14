@@ -8,7 +8,7 @@
 	"component": {
 		"prefix": "compo",
 		"body": [
-			"import { Component, View } from 'angular2/angular2';",
+			"import { Component, View } from 'angular2/core';",
 			"let template = require('./$1.html');",
 			"let styles = require('./$1.scss');",
 			"",

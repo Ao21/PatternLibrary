@@ -12,7 +12,7 @@ import {SHARED_DIRECTIVES} from './directives/directives_modules';
 
 import { DOM, DomAdapter } from 'angular2/platform/common_dom';
 
-import {Section, Dashboard, ImportPage, AddPage, PatternPage} from './components/patterns/patterns_modules';
+import {Section,CreateSectionPage, Dashboard, ImportPage, AddPage, PatternPage} from './components/patterns/patterns_modules';
 import {Dispatcher} from './common/dispatcher';
 
 import {AssetsService} from './services/services_modules.ts';
@@ -25,7 +25,9 @@ let template = require('./app.html');
   providers: [CORE_DIRECTIVES, FORM_DIRECTIVES, ROUTER_DIRECTIVES, Dispatcher ], 
 })
 @RouteConfig([
-    { path: '/', component: Section, as: 'Section' },
+    { path: '/', redirectTo: ['/Import'] },
+    { path: '/section/create', component: CreateSectionPage, as: 'CreateSection' },
+    { path: '/section/:url', component: Section, as: 'Section' },
     { path: '/import', component: ImportPage, as: 'Import' },
     { path: '/add', component: AddPage, as: 'Add' },
     { path: '/pattern/:pattern', component: PatternPage, as: 'Pattern' }      
