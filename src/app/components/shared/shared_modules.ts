@@ -11,7 +11,7 @@ import {AddPattern} from './add_pattern/add_pattern';
 import {AddComponent} from './add_component/add_component.ts';
 import {FormComponent} from './form_component/form_component.ts';
 import {TextEdit} from './text_edit/text_edit';
-
+import {UrlCreatorInput} from './url_creator/url_creator';
 export var SHARED_COMPONENTS: Array<any> = [
 	TopNav,
 	SideNav,
@@ -25,6 +25,7 @@ export var SHARED_COMPONENTS: Array<any> = [
 	AddPattern,
 	AddComponent,
 	FormComponent,
-	TextEdit
+	TextEdit,
+	UrlCreatorInput
 ]
 

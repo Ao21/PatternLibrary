@@ -1,5 +1,6 @@
 import {Inject, Injectable} 	from 'angular2/core';
 import {Store, Dispatcher} 		from '../common/common_modules';
+import {SectionService} from './../services/services_modules';
 
 let monkey: any = Baobab.monkey;
 
@@ -20,9 +21,19 @@ export class Section {
 @Injectable()
 export class SectionStore extends Store {
 	constructor(
+		@Inject(SectionService) public sectionService: SectionService,
 		@Inject(Dispatcher) dispatcher: Dispatcher
 	) {
 		super(dispatcher, 'SectionStore', new Section());
+		this.sectionService.getAll().subscribe(
+			res => {
+				console.log(res);
+			}
+		)
+	}
+	
+	getSections() {
+		
 	}
 
 	addPattern(pattern) {
