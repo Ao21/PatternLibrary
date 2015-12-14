@@ -6,46 +6,50 @@ let styles = require('./select_dropdown.scss');
 @Component({
 	selector: 'select-dropdown',
 	providers: [],
-	inputs: ['placeholder'],
+	inputs: ['placeholder', 'isMenuVisible'],
 	outputs: ['change']
 })
 @View({
 	template: template,
 	styles: [styles],
 	directives: []
-})	    
+})
 export class SelectDropdown implements OnInit {
 	selectItems: any = [];
 	value: string;
+	isMenuVisible: boolean;
 	placeholder: string;
-	change  = new EventEmitter();
+	toggle: boolean;
+	change = new EventEmitter();
 
 	private _selectItemIdCount: number = 0;
 	private _disabled: boolean;
-	
+
+
 	constructor(
 		@Query(SelectItem) public selectItemsQuery: QueryList<SelectItem>,
 		public el: ElementRef
-	) { 
+	) {
 		this.selectItemsQuery.changes.subscribe(
 			res=> {
 				this.selectItems = res.toArray();
 			}
 		)
+
 	}
-	
+
 	get disabled() {
 		return this._disabled;
 	}
-	
+
 	onInit() {
 		this.value = this.placeholder ? this.placeholder : 'Select';
 	}
-	
+
 	register() {
 		return this._selectItemIdCount++;
 	}
-	
+
 	updateValue(value) {
 		_.forEach(this.selectItems, (item) => {
 			item.checked = false;
@@ -55,7 +59,9 @@ export class SelectDropdown implements OnInit {
 				item.checked = true;
 			}
 		})
-		
-		
+	}
+	toggleMenu(toggle?: boolean) {
+
+		this.isMenuVisible = toggle ? toggle : !this.isMenuVisible;
 	}
 }

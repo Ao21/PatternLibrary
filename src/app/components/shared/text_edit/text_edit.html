@@ -1,12 +1,13 @@
-<div class="c-extend-bar__open-btn" (click)="openEditor(true)">+</div>
+<div class="c-extend-bar__open-btn" (click)="openEditor()">+</div>
 <div class="c-extend-bar__bar">
-	<div class="c-extend-bar__close-btn" (click)="toggleBar(false)">x</div>
+	<div class="c-extend-bar__close-btn" (click)="closeEditor()">x</div>
 	<div [class.visible]="isActive" id="toolbar">
-		<select-dropdown (change)="updateSize($event)" class="">
+		<select-dropdown *ng-if="isExtended" (change)="updateSize($event)" class="dropdown--menu" >
 			<select-item value="10px">Selection 1</select-item>
 			<select-item value="32px">Selection 2</select-item>
 		</select-dropdown>
-		<button class="ql-bold"></button>
+		<button class="ql-bold btn--toolbar">B</button>
+		<button class="ql-italic btn--toolbar">i</button>
 	</div>
 	<div id="editor">
 		<div>Start writing</div>

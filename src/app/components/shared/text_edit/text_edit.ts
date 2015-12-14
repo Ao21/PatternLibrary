@@ -34,7 +34,10 @@ export class TextEdit {
 		console.log(this.quill);
 
 	}
-	closeEditor() { }
+	closeEditor() { 
+		this.quill.destroy();
+		this.isExtended = false;
+	}
 
 
 	getSelection = (cb) => {
@@ -56,6 +59,7 @@ export class TextEdit {
 	}
 
 	updateSize(event) {
+
 		this.getSelection((start, end) => {
 			
 			if (isPresent(start) && !isPresent(end)) {

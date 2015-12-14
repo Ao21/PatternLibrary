@@ -36,10 +36,14 @@
 	float: left;
 	margin-right: 11px;
 	float: right;
+	position: absolute;
+    right: 5px;
+    top: 10px;
+	z-index: 99999;
 }
 .c-extend-bar__bar{
 	background-color: $midGrey;
-	height: 45px;
+	height: $barHeight;
 	width: 100%;
 	opacity:0;
 	transform:translateX(-15px);

@@ -7,6 +7,7 @@ let styles = require('./select_item.scss');
 	selector: 'select-item',
 	inputs: ['value'],
 	host: {
+		'(click)':'close()',
 		'[class.checked]':'checked'
 	}
 })
@@ -44,5 +45,9 @@ export class SelectItem {
 			return;
 		}
 		this.selectDropdown.updateValue(this.id_);
+	}
+
+	close() {
+		this.selectDropdown.toggleMenu(false)
 	}
 }

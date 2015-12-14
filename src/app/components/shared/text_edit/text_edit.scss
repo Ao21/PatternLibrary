@@ -5,9 +5,25 @@ text-edit{
 	}
 	#toolbar{
 		height: 50px;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		z-index: 9;
+		
+		& > .btn--toolbar {
+			background-color: transparent;
+			color: white;
+			height: 45px;
+			border: none;
+			padding: 0;
+			font-size: 14px;
+			padding: 0 12px;
+		}
 		
 	}	
 	#editor {
+		margin-top:35px;
 		height: initial;
+		padding: 12px 0;
 	}
 }
