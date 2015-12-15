@@ -60,6 +60,7 @@
     "lodash": "^3.10.1",
     "method-override": "^2.3.5",
     "mongoose": "^4.2.9",
+    "mongoose-deep-populate": "^2.0.3",
     "morgan": "^1.6.1",
     "postal": "^1.0.7",
     "prettydiff": "^1.16.0",
