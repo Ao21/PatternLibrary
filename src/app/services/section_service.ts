@@ -50,5 +50,17 @@ export class SectionService {
 		return this.http.post(`${this.url}/${id}`, JSON.stringify(obj), { headers: headers });
 		
 	}
+	
+	addPattern(pattern) {
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		return this.http.post(`${this.url}/addPattern`, JSON.stringify(pattern), { headers: headers })
+	}
+	
+	addComponent(section) {
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		return this.http.post(`${this.url}/addComponent`, JSON.stringify(section), { headers: headers })
+	}
 
 }
