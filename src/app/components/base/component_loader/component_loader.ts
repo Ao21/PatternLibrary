@@ -2,6 +2,7 @@ import { Component, View, OnInit, DynamicComponentLoader, Injector, provide, Ren
 import {ObservableWrapper, Promise, PromiseWrapper} from 'angular2/src/facade/async';
 import { Http } from 'angular2/http';
 import {ComponentConfig} from './../../shared/component_config/component_config.ts';
+import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 
 import * as BaseModules from './../base_modules.ts';
 import {SHARED_COMPONENTS} from './../../shared/shared_modules.ts';
@@ -22,6 +23,7 @@ export class ComponentLoader implements OnInit {
 	loader: string;
 	data: any;
 	config: any;
+	height: string;
 
 	constructor(
 		private _dComponentLoader: DynamicComponentLoader,
@@ -44,9 +46,12 @@ export class ComponentLoader implements OnInit {
 
 		return this._dComponentLoader.loadIntoLocation(comp, this._el, 'child')
 			.then((comp: any) => {
+				this.height = DOM.getProperty(comp.location.nativeElement, 'offsetHeight') + 30;
 				if (this.data) {
 					comp.instance.data = this.data;
 					comp.instance.init();
+					
+					
 				}
 				
 			});

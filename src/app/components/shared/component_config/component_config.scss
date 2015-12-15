@@ -2,5 +2,23 @@
 
 :host,
 component-config{
-	
+	position: relative;
+    width: 100%;
+    float: left;
+	color: white;
+	&:before{
+		top:0;
+		content: "";
+		position: absolute;
+		width: calc(100% + 70px);
+		height: 100%;
+		z-index: -1;
+		background-color: $darkBlue;
+		margin-left: -50px;
+	}
+	& ~ * {
+		transform: translateY(-120%);
+   		background-color: white;
+		margin-bottom:-10% !important;
+	}
 }
