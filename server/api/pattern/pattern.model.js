@@ -1,4 +1,5 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 var Patterns = new mongoose.Schema({
 	name: String,
 	patternId: String,
@@ -6,10 +7,12 @@ var Patterns = new mongoose.Schema({
 	ref: String,
 	dom: String,
 	group: String,
+	type: { type: String, default: 'pattern'},
 	description: {},
 	modifiedOn: { type: Date, default: Date.now },
 	url: String,
 	file: {},
+	sections : [{ type: Schema.Types.ObjectId, ref: 'Section' }],
 	data: [{
 		angular: {},
 		markup: {},

@@ -1,4 +1,5 @@
 var Section = require('./section.model');
+var Pattern = require('./../pattern/pattern.model');
 var _ = require('lodash');
 
 exports.index = function (req, res) {
@@ -8,14 +9,18 @@ exports.index = function (req, res) {
 }
 
 exports.find = function(req,res){
-	Section.findOne({ url: req.params.url }, function (err, section) {
+	Section.findOne({ url: req.params.url })
+	.deepPopulate('data.pattern data.component')
+	.exec(function (err, docs) {
+		
 		if (err) {
 			return res.status(401).send('Bad Request')
 		}
-		if (!section) {
+		if (!docs) {
 			return res.status(404).send('Nothing was found');
 		}
-		res.send(JSON.stringify(section));
+		res.status(200).send(docs);
+
 	})
 }
 
@@ -34,7 +39,36 @@ exports.update = function (req, res) {
 		Section.findOne(req.body.query, function (err, doc) { 
 			res.send(doc);
 		})
-	})
+	})	
+}
 
-	
+exports.addPattern = function (req, res) {
+	Section.findOne({ '_id': req.body.sectionId }, function (err, section) {
+		section.data.push({
+			pattern: req.body._id,
+			index: 0
+		})
+		section.save(function (err) {
+			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.pattern').exec(function (err, nSection) {
+				res.send(nSection);
+			})
+		});
+		
+		
+	})
+}
+exports.addSectionComponent = function (req, res) {
+	Section.findOne({ '_id': req.body.sectionId }, function (err, section) {
+		section.data.push({
+			component: req.body._id,
+			index: 0
+		})
+		section.save(function (err) {
+			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.component').exec(function (err, nSection) {
+				res.send(nSection);
+			})
+		});
+		
+		
+	})
 }
