@@ -12,6 +12,7 @@ import {AddComponent} from './add_component/add_component.ts';
 import {FormComponent} from './form_component/form_component.ts';
 import {TextEdit} from './text_edit/text_edit';
 import {UrlCreatorInput} from './url_creator/url_creator';
+import {ComponentConfig} from './component_config/component_config.ts';
 export var SHARED_COMPONENTS: Array<any> = [
 	TopNav,
 	SideNav,
@@ -26,6 +27,7 @@ export var SHARED_COMPONENTS: Array<any> = [
 	AddComponent,
 	FormComponent,
 	TextEdit,
-	UrlCreatorInput
+	UrlCreatorInput,
+	ComponentConfig
 ]
 

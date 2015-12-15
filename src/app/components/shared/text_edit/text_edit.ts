@@ -31,7 +31,6 @@ export class TextEdit {
 		this.quill.addModule('toolbar', {
 			container: DOM.querySelector(this.el.nativeElement, '#toolbar')
 		});
-		console.log(this.quill);
 
 	}
 	closeEditor() { 
@@ -45,15 +44,12 @@ export class TextEdit {
 		this.range = this.quill.getSelection();
 		if (this.range) {
 			if (this.range.start == this.range.end) {
-				console.log('User cursor is at index', this.range.start);
 				cb(this.range.start)
 			} else {
 				var text = this.quill.getText(this.range.start, this.range.end);
-				console.log('User has highlighted: ', text);
 				cb(this.range.start, this.range.end)
 			}
 		} else {
-			console.log('User cursor is not in editor');
 			cb()
 		}
 	}

@@ -1,8 +1,12 @@
 <div class="c-extend-bar__open-btn" (click)="toggleBar(true)">+</div>
 <div class="c-extend-bar__bar">
 	<div class="c-extend-bar__close-btn" (click)="toggleBar(false)">x</div>
-	<button class="btn--nostyle">Patterns</button>
-	<button class="btn--nostyle">Components</button>
-	<button class="btn--nostyle">Pages</button>
-	<add-pattern [index]="index"  *ngIf="isExtended"></add-pattern>
-</div>
+	<tab-group class="edit_bar_tabs">
+		<tab value="Patterns" selected>
+			  <add-pattern [index]="index"  *ngIf="isExtended"></add-pattern>
+		</tab>
+		<tab value="Components">
+			<add-component [location]="location"  *ngIf="isExtended"></add-component>
+		</tab>
+	</tab-group>
+	</div>

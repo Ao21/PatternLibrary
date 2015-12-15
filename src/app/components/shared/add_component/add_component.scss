@@ -1,0 +1,57 @@
+:host,
+add-component {
+	margin-top:35px;
+	width:100%;
+	float: left;
+	opacity:0;
+	transition:0.3s all;
+	margin-left: 5px;
+	
+	.c-add-component {
+		width: 150px;
+		height: 115px;
+		background-color: #4BB0FF;
+		font-size: 7px;
+		float: left;
+		margin-right: 15px;
+		text-align: center;
+		align-items: center;
+		align-self: center;
+		display: flex;
+		opacity:0;
+		transform: translateY(-20px);
+		flex-direction: column;
+		img, svg {
+			display: block;
+			float: left;
+			width: 70%;
+			margin-top: 20px;
+			clear: both;
+		}
+		h1 {
+			font-size: 9px;
+			color:white;
+			width:100%;
+			text-align: center;
+			margin-top: 0;
+		}
+		
+		&.html-view {
+			background-image: url('images/icons/code.svg');
+			svg path {
+				fill: white;
+			}
+		}
+	}
+
+	&.isextended {
+		opacity: 1;
+	}
+	&.isextended .c-add-component {
+		opacity:1;
+		transform: translateY(0);
+	}
+	
+	
+}
+

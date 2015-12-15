@@ -18,7 +18,7 @@ let styles = require('./colour_displayer.scss');
 	styles: [styles],
 	directives: [NgStyle]
 })	    
-export class ColourDisplayer  {
+export class ColourDisplayer implements OnInit {
 	data: any = null;
 	colours: any;
 	colourName: string;
@@ -30,6 +30,10 @@ export class ColourDisplayer  {
 		public uiStore: UIStore
 	) {
 		//this.data = null;
+		
+	}
+	
+	ngOnInit() {
 		this.init();
 	}
 	

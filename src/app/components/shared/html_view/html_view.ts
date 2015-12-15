@@ -21,6 +21,6 @@ export class HTMLView {
 		private _el: ElementRef
 	) {}
 	clickToCopy() {
-		console.log(DOM.querySelector(this._el.nativeElement,'.content .selected code').innerText);
+		//console.log(DOM.querySelector(this._el.nativeElement,'.content .selected code').innerText);
 	}
 }

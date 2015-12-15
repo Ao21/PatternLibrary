@@ -26,7 +26,7 @@ export class DropZone {
 		interact(this._el.nativeElement)
 			.dropzone({
 				ondragenter: function(event) {
-					console.log('enter');
+
 					var draggableElement = event.relatedTarget,
 						dropzoneElement = event.target;
 				
@@ -35,7 +35,7 @@ export class DropZone {
 					draggableElement.classList.add('can-drop');
 				},
 				ondragleave: function(event) {
-					console.log('leave')
+
 					// remove the drop feedback style
 					event.target.classList.remove('drop-target');
 					event.relatedTarget.classList.remove('can-drop');

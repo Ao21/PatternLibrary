@@ -31,9 +31,7 @@ export class UrlCreatorInput implements OnInit, OnChanges {
 	}
 	
 	ngOnInit() {
-		console.log(this.controlPath);
 		this.control = this.formDir.form.controls[this.controlPath];
-		console.log(this.formDir.form.controls[this.controlPath]);		 
 	}
 	
 	ngOnChanges() {

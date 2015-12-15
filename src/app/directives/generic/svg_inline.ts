@@ -8,18 +8,25 @@ import {Http} from 'angular2/http';
 	inputs: ['src']
 })
 
-export class SVGInline {
+export class SVGInline implements OnInit {
+	src: string;
 	constructor(
 		private _http: Http,
 		private _el: ElementRef,
-		private _renderer: Renderer,
-		@Attribute('src') public src: string
+		private _renderer: Renderer
 	) {
-		this._http.get(this.src).subscribe((res) => {
-
+		
+	}
+	
+	ngOnInit() {
+		this._http.get(this.src).subscribe(
+			(res) => {
 			var parser = new DOMParser();
 			var doc = parser.parseFromString(res.text(), "image/svg+xml");		
 			this._el.nativeElement.parentElement.replaceChild(doc.documentElement, this._el.nativeElement)
+			},
+			(err) => {
+				console.log('not found');
 		})
 	}
 }

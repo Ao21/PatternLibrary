@@ -6,7 +6,7 @@ let styles = require('./add_pattern.scss');
 
 @Component({
 	selector: 'add-pattern',
-	inputs: ['index'],
+	inputs: ['index','location'],
 	host: {
 		"[class.isextended]":"isExtended"
 	}
@@ -27,7 +27,7 @@ export class AddPattern implements OnInit {
 		this.patterns = this.patternService.patterns;
 	}
 	
-	addPattern(pattern) {
+	addPattern(pattern, location) {
 		this.sectionStore.addPattern(pattern, this.index);
 	}
 	

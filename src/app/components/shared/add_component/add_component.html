@@ -1,3 +1,4 @@
-<div class="c-add-component animate-waterfall--delay" *ngFor="#component of components" (click)="addComponent(component)">
+<div class="c-add-component ng-animate animate-waterfall--delay {{component.ref}}" *ngFor="#component of components" (click)="addComponent(component)">
+	<img svg src="images/icons/{{component.ref}}.svg" alt="">
 	<h1>{{component.name}}</h1>
 </div>
