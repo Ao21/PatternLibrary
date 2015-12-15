@@ -22,6 +22,8 @@ export class Section {
 	fakeData: any;
 	sections: any;
 	section: any = {};
+	sectionData: any = [];
+	
 	sub: ISubscriptionDefinition<SectionStore>
 	constructor(
 		@Host() public router: Router,
@@ -34,6 +36,7 @@ export class Section {
 		this.sectionStore.getSection(this.routeParams.params['url']).subscribe(
 			res => {
 				this.section = res.json();
+				this.sectionData = this.section.data;
 			},
 			err => {
 				this.router.parent.navigate(['./Import'])
@@ -41,10 +44,11 @@ export class Section {
 		)
 		this.fakeData = ['#8DE3FC', '#8DE3FC'];
 		this.sub = this.sectionStore.subscribe('section', state=> {
-			if (state.get('activeSection')) {
-				this.section = state.get('activeSection');
-			}
-			this.sections = state.get('components');
+			// if (state.get('activeSection')) {
+			// 	//this.section = state.get('activeSection');
+			// 	this.sectionData = state.get(['activeSection','data']);
+				
+			// }
 		})
 		
 	}
