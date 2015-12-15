@@ -1,0 +1,19 @@
+.edit_bar_tabs{
+	.tab_selector {
+		display: flex;
+		color: white;
+		height: 30px;
+		align-items: center;
+		margin-left:5px;
+	}
+	.tab__title {
+		margin-right: $margin;
+		cursor: pointer;
+		h6 {
+			font-size: 10px;
+			color: $darkBlue;
+			margin:0;
+		}
+	}
+	.content {}
+}

@@ -30,7 +30,7 @@ export class ImportPage {
 		});
 		
 		this.form.valueChanges.subscribe((res) => {
-			console.log(res);
+			// console.log(res);
 		})
   }
 }

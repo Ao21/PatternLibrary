@@ -29,7 +29,7 @@ export class MagGlass implements OnInit {
 				delay: 0,
 				callback: function() {
 					inAC2(s)
-					console.log('1 done')
+
 				}
 					
 			})
@@ -40,7 +40,7 @@ export class MagGlass implements OnInit {
 				delay: 0,
 				callback: function() {
 					inAC3(s)
-					console.log('2 done')
+
 				}
 			})
 		}
@@ -48,7 +48,7 @@ export class MagGlass implements OnInit {
 				s.draw("60%", "30%", 0.3, { 
 				delay: 0,
 				callback: function() {
-					console.log('3 done')
+
 					//inAC3(s)
 				}
 			})

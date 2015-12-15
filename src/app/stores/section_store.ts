@@ -28,7 +28,7 @@ export class SectionStore extends Store {
 		super(dispatcher, 'SectionStore', new Section());
 		this.sectionService.getAll().subscribe(
 			res => {
-				console.log(res);
+				//console.log(res.json());
 			}
 		)
 	}
@@ -44,8 +44,17 @@ export class SectionStore extends Store {
 	getSections() {
 		
 	}
+	
+	addComponent(component, location) {
+		component.sectionId = location.location._id;
+		this.sectionService.addComponent(component).subscribe(
+			(res) => {
+				//console.log(res.json());
+			}
+		)
+	}
 
-	addPattern(pattern, index) {
+	addPattern(pattern, location) {
 		
 		var obj = {
 			ref: pattern.ref,
@@ -64,9 +73,10 @@ export class SectionStore extends Store {
 		} else {
 			this.push(['activeSection', 'data'], obj);
 		}
-
 		
-		this.sectionService.update(activeSection._id, this.get('activeSection')).subscribe(
+		pattern.sectionId = activeSection._id;
+
+		this.sectionService.addPattern(pattern).subscribe(
 			res => {
 				this.update('activeSection', res.json(), 'section');
 			}

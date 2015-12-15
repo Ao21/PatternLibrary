@@ -29,7 +29,7 @@ export class PatternLoader implements OnInit {
 
 		this.http.get('http://localhost:8080/api/' + 'pattern').subscribe(
 			res=> {
-				console.log(res.json());
+				//console.log(res.json());
 				//var results: any = res.json()[0];
 				//console.log(results);
 
@@ -67,7 +67,7 @@ export class PatternLoader implements OnInit {
 	}
 
 	createComponent(res) {
-		console.log(PlaceHolder);
+		//console.log(PlaceHolder);
 
 
 	}
