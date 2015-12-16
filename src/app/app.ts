@@ -22,7 +22,7 @@ let template = require('./app.html');
 
 @Component({
   selector: 'app', // <app></app>
-  providers: [CORE_DIRECTIVES, FORM_DIRECTIVES, ROUTER_DIRECTIVES, Dispatcher ], 
+  providers: [CORE_DIRECTIVES, FORM_DIRECTIVES, ROUTER_DIRECTIVES, Dispatcher,BASE_COMPONENTS,SHARED_DIRECTIVES,SHARED_COMPONENTS ], 
 })
 @RouteConfig([
     { path: '/', redirectTo: ['/Import'] },

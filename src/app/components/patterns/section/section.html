@@ -9,7 +9,7 @@
 	</div>
 	<div *ngFor="#entry of sectionData, #i = index" hover-edit>
 		<edit-bar [location]="{locationType:'section',location:section,index: i}" [index]="i"></edit-bar>
-		<component-loader *ngIf="entry.component" [loader]="entry.component.ref" [data]="entry.data" [config]="entry.component.config"></component-loader>
+		<component-loader *ngIf="entry.component" [section]="entry" [config]="entry.component.config"></component-loader>
 		<pattern-loader *ngIf="entry.pattern" [loader]="entry.pattern.ref"></pattern-loader>
 	</div>
 	

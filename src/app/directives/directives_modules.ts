@@ -12,6 +12,5 @@ export var DRAGGING_DIRECTIVES: Array<any> = [
 ]
 
 export var SHARED_DIRECTIVES: Array<any> = [
-	SVGInline,
-	
+	SVGInline
 ]

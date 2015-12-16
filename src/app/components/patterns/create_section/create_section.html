@@ -2,7 +2,7 @@
 	<h1>Create Section</h1>
 	<form (ngSubmit)="onSubmit()" [ngFormModel]="form"  #f="ngForm">
 		<label for="sectionName">What is this section called?</label>
-		<form-component #sectionName placeholder="Type the name of the section here." control="name"></form-component>
+		<form-component #sectionName type="text" placeholder="Type the name of the section here." control="name"></form-component>
 		<label for="sectionName">What would you like the url to this section to be?</label>
 		<url-creator [value]="form.controls['name'].value" control="url"></url-creator>
 		<button class="btn btn--default" type="submit" [disabled]="!f.form.valid">Create Section</button>

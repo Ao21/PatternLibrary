@@ -5,7 +5,10 @@
 /// <reference path="webpack.d.ts" />
 
 declare module hljs {
-  function highlightBlock(block: any): void;
+	function highlightBlock(block: any): void;
+	function highlightAuto(block: any, lanuages:any): void;
+	function fixMarkup(block: any): void;
+	function configure(options: any): void;
 }
 
 declare var Scribe: any;

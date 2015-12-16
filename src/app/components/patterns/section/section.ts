@@ -37,6 +37,7 @@ export class Section {
 			res => {
 				this.section = res.json();
 				this.sectionData = this.section.data;
+				console.log(this.sectionData);
 			},
 			err => {
 				this.router.parent.navigate(['./Import'])

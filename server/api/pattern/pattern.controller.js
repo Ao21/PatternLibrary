@@ -59,7 +59,6 @@ exports.get = function (req, res) {
 }
 
 exports.addPatternUrl = function (req, res) {
-	
 	renderSass(req.body.url).then(function (sassFile) {
 		getFile(req.body.url).then(function (file) {
 		
@@ -171,6 +170,7 @@ function addPattern(pattern, cb) {
 function renderSass(path) {
 	var d = q.defer();
 	sass.render({ file: path }, function (err, res) {
+		console.log(err);
 		d.resolve(res.css.toString());
 	})
 	return d.promise;
