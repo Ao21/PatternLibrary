@@ -1,2 +1,2 @@
-<component-config [ngStyle]="{'padding-bottom': height+'px'}" [data]="config"></component-config>
+<component-config *ngIf="isConfigRequired" [ngStyle]="{'padding-bottom': height+'px'}" [data]="config" [section]="section"></component-config>
 <div #child></div>
