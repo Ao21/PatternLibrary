@@ -1,7 +1,8 @@
 import { Component, View} from 'angular2/core';
-import { ControlGroup, FormBuilder, NgForm, FORM_DIRECTIVES, NgFormModel} from 'angular2/common';
+import { ControlGroup, FormBuilder, NgForm, FORM_DIRECTIVES, NgFormModel, Validators} from 'angular2/common';
 import { BASE_COMPONENTS} from './../../base/base_modules.ts';
 import { SHARED_COMPONENTS } from './../../shared/shared_modules.ts';
+import {inputEqualsValue} from './../../../directives/validators/input_equals.ts';
 let template = require('./import.html');
 let styles = require('./import.scss');
 
@@ -26,11 +27,12 @@ export class ImportPage {
 	constructor(fb: FormBuilder) {
 		this.form = fb.group({
 			"firstName": [""],
-
+			"autoComplete": ["", inputEqualsValue]
 		});
 		
 		this.form.valueChanges.subscribe((res) => {
-			// console.log(res);
+			//console.log(res);
+			//console.log(this.form.valid);
 		})
   }
 }
