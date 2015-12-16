@@ -1,1 +1,4 @@
-<input type="text" [placeholder]="placeholder" [ngFormControl]="control">
+<div [ngSwitch]="type">
+	<input *ngSwitchWhen="'text'" type="text" [placeholder]="placeholder" [ngFormControl]="control">
+	<auto-complete input-equals *ngSwitchWhen="'autocomplete'" [control]="control" [datasource]="datasource"></auto-complete>
+</div>
