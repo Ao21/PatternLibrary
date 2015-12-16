@@ -1,14 +1,22 @@
-import {Directive, ElementRef} from 'angular2/core';
+import {Directive, ElementRef, OnInit, OnChanges} from 'angular2/core';
 
 
 @Directive({
 	selector: '[code-highlight]'
 })
 
-export class CodeHighlight {
+export class CodeHighlight implements OnInit {
 	constructor(
 		private _el: ElementRef
 	) {
-		hljs.highlightBlock(this._el.nativeElement);
+		
+	}
+	
+	ngOnChanges() {
+		console.log('hi');
+	}
+	ngOnInit() {
+		console.log(this._el.nativeElement.innerHTML)
+		//hljs.highlightBlock(this._el.nativeElement);
 	}
 }
