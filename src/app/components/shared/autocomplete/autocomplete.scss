@@ -1,0 +1,51 @@
+/**
+ * @name MultiSelect
+ * @ref multiSelect
+ * @url /Users/ronanbrett/Work/AA/uiMembership/src/app/components/shared/multiselect/multiselect.scss
+ * @dom multi-select
+ * @description Multiselector
+ * @angular
+ *    <multi-select placeholder="County" [control]="userForm.controls[field.name]" >
+ *      <multi-select-option value="Carlow">Carlow</multi-select-option>
+ *    </multi-select>
+ * @markup
+ *    <input class="form-control" type="text" placeholder="County">
+ *      <div class="search">
+ *        <div class="results">
+ *          <button>Dublin</button>
+ *          <button>Cork</button>
+ *        </div>
+ *      </div>
+ *
+ */
+:host,
+multi-select{
+	.search {
+		    position: relative;
+    float: left;
+    width: 100%;
+	}
+	.results {
+		position: absolute;
+		bottom: 0;
+		max-height: 200px;
+		width: 100%;
+		overflow: scroll;
+		height: auto;
+		border: 1px solid #ccc;
+		background-color: white;
+		transform: translateY(-36px);
+		border-radius: 3px;
+
+		button{
+			float: left;
+			width: 100%;
+			min-height: 40px;
+			background-color: white;
+			border: none;
+			box-shadow: none;
+			border-bottom: 1px solid rgba(0,0,0,0.2);
+		}
+
+	}
+}

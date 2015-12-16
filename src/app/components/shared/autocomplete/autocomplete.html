@@ -1,0 +1,14 @@
+<input 	(blur)="onBlur($event)" 
+		[disabled]="disabled" 
+		autocomplete="off" 
+		class="form-control" 
+		type="text" 
+		(input)="onInput($event)" 
+		(keyup)="onKeyPress($event)" 
+		[attr.placeholder]="placeholder"
+		[value]="value">
+<div class="search">
+	<div class="results" *ngIf="(options|filter:filter).length > 0 && isVisible">
+	<button (click)="select($event, option)" (keydown)="onResultKeyPress($event)" *ngFor="#option of options | filter:filter" [value]="option.value">{{option.display}}</button>
+	</div>
+</div>
