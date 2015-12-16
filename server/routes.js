@@ -16,7 +16,7 @@ module.exports = function(app) {
   app.use('/api/assets', require('./api/assets'));
   app.use('/api/section', require('./api/section'));
   app.use('/api/sectionComponent', require('./api/section_component'));
-
+  app.use('/api/search', require('./api/search'));
   
   // // All undefined asset or api routes should return a 404
   // app.route('/:url(app|api|auth|components|app|bower_components|assets)/*')

@@ -11,7 +11,8 @@ var Section = new mongoose.Schema({
 	data: [{
 		component: { type: Schema.Types.ObjectId, ref: 'SectionComponents' },
 		pattern: { type: Schema.Types.ObjectId, ref: 'Patterns' },
-		index: Number
+		index: Number,
+		data: {}
 	}]
 	// Layout Info
 })

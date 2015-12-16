@@ -8,20 +8,18 @@ exports.index = function (req, res) {
 	})
 }
 
-exports.find = function(req,res){
+exports.find = function (req, res) {
 	Section.findOne({ url: req.params.url })
-	.deepPopulate('data.pattern data.component')
-	.exec(function (err, docs) {
-		
-		if (err) {
-			return res.status(401).send('Bad Request')
-		}
-		if (!docs) {
-			return res.status(404).send('Nothing was found');
-		}
-		res.status(200).send(docs);
-
-	})
+		.deepPopulate('data.pattern data.component')
+		.exec(function (err, docs) {
+			if (err) {
+				return res.status(401).send('Bad Request')
+			}
+			if (!docs) {
+				return res.status(404).send('Nothing was found');
+			}
+			res.status(200).send(docs);
+		})
 }
 
 exports.add = function (req, res) {
@@ -34,12 +32,11 @@ exports.add = function (req, res) {
 }
 
 exports.update = function (req, res) {
-	
 	Section.update(req.body.query, req.body.update, function (err, doc) {
-		Section.findOne(req.body.query, function (err, doc) { 
+		Section.findOne(req.body.query, function (err, doc) {
 			res.send(doc);
 		})
-	})	
+	})
 }
 
 exports.addPattern = function (req, res) {
@@ -53,8 +50,6 @@ exports.addPattern = function (req, res) {
 				res.send(nSection);
 			})
 		});
-		
-		
 	})
 }
 exports.addSectionComponent = function (req, res) {
@@ -68,7 +63,19 @@ exports.addSectionComponent = function (req, res) {
 				res.send(nSection);
 			})
 		});
-		
-		
 	})
+}
+
+exports.updateSectionComponent = function (req, res) {
+	Section.findOne({ 'data._id': req.body.sectionId },
+		(function (err, doc) {
+			_.forEach(doc.data, function (e, i) {
+				if (e._id == req.body.sectionId) {
+					doc.data[i].data = req.body.data;
+				}
+			})
+			doc.save(function (err) {
+				res.send(doc);
+			});
+		}));
 }

@@ -9,7 +9,13 @@ var SectionComponents = new mongoose.Schema({
 	ref: String,
 	image: String,
 	data: Schema.Types.Mixed,
-	config: [{}],
+	config: {},
+	// config: [
+	// 	data: String,
+	// 	type: String,
+	// 	helperText: String,
+	// 	control: String
+	// ],
 	// Layout Info
 	layoutArea: String,
 	order: Number

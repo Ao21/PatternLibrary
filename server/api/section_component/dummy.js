@@ -8,9 +8,10 @@ var SectionComponent = require('./section_component.model');
 // 	ref: 'HTMLView',
 // 	config: [{
 // 		type: 'autocomplete',
-// 		data: 'patterns'
+// 		data: 'patterns',
+// 		control: 'HTMLViewData',
+// 		helperText: 'You must choose a pattern for Code Viewer.'
 // 	}]
 // }, function (err, doc) {
 // 	console.log(err);
 // })
-

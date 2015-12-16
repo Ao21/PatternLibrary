@@ -9,6 +9,7 @@ router.get('/', controller.index);
 router.post('/', controller.add);
 router.post('/addPattern', controller.addPattern);
 router.post('/addComponent', controller.addSectionComponent);
+router.post('/updateComponent', controller.updateSectionComponent);
 router.get('/:url', controller.find);
 router.post('/:id', controller.update);
 
