@@ -36,6 +36,7 @@ export class SectionService {
 				
 			}
 		)
+
 	}
 	
 	update(id: string, section: Section) {
@@ -49,6 +50,12 @@ export class SectionService {
 		}
 		return this.http.post(`${this.url}/${id}`, JSON.stringify(obj), { headers: headers });
 		
+	}
+	
+	updateQuery(obj) {
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		return this.http.post(`${this.url}/updateComponent`, JSON.stringify(obj), { headers: headers });
 	}
 	
 	addPattern(pattern) {

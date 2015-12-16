@@ -13,6 +13,19 @@ export class PatternService {
 		this.getPatterns((e)=>{});
 	}
 	
+	getAll() {
+		return new Promise((res, rej) => {
+			return this.http.get(this.url).subscribe(
+				data => {
+					res(data);
+				},
+				err => {
+					rej(err);
+				}
+			)
+		})
+	}
+	
 	get patternsDict() {
 		return this._patternsDict;
 	}

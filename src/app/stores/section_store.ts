@@ -53,6 +53,20 @@ export class SectionStore extends Store {
 			}
 		)
 	}
+	
+	updateComponent(componentId, data, sectionId) {
+		console.log(componentId, data, sectionId);
+		let obj = {
+			sectionId: sectionId,
+			componentId: componentId,
+			data: data
+		}
+		this.sectionService.updateQuery(obj).subscribe(
+			res => {
+				console.log(res);
+			}
+		);
+	}
 
 	addPattern(pattern, location) {
 		
