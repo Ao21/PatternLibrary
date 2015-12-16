@@ -15,6 +15,7 @@ component-config{
 		z-index: -1;
 		background-color: $darkBlue;
 		margin-left: -50px;
+		transform:translateZ(0);
 	}
 	& ~ * {
 		transform: translateY(-120%);

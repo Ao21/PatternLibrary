@@ -1,5 +1,11 @@
 <section>
 	<h1>Configuration</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur omnis cumque perspiciatis, neque maiores ipsa, quae ducimus consequatur. Minima, inventore nesciunt assumenda dicta facere harum et ipsam officia adipisci unde.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quidem placeat possimus, explicabo, unde vel accusamus soluta quasi magnam? Optio cupiditate animi doloremque? At enim voluptatem, quidem saepe repellat, sed.</p>
+	<form [ngFormModel]="form" autocomplete="off">
+		<div *ngFor="#entry of data">
+			<p>{{entry.helperText}}</p>
+			<form-component [type]="entry.type" [control]="entry.control" [datasource]="entry.data" ></form-component>
+		</div>
+		<button (click)="onSubmit()">Configure</button>
+	</form>
+
 </section>
