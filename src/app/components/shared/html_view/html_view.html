@@ -1,18 +1,7 @@
 <tab-group class="html_view_tabs">
-	<tab value="HTML" selected>
-		<code code-highlight>
-			&lt;div&gt;
-			<br>&nbsp;
-			&lt;h1&gt;Code&lt;/h1&gt;
-			<br>
-			&lt;/div&gt;
-		</code>
+	<tab *ngFor="#entry of tabs, #i = index" value="{{entry.name}}">
+		<code class="hljs" [innerHtml]="entry.data|highlight : entry.type"></code>
 	</tab>
-	<tab value="SCSS">
-		SCSS Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia at nobis sint doloremque dolorum sunt corporis, dolore illo, asperiores dolor ipsam. Quidem maxime temporibus, ex earum laboriosam, placeat consequatur itaque.
-	</tab>
-	<tab value="JS">
-		JS Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quaerat ea, autem nostrum. Ea rerum veritatis earum iste esse cum, officiis ratione, doloribus neque, delectus minus, laboriosam nemo ut tempora.
-	</tab>
+
 </tab-group>
 <button (click)="clickToCopy()" class="btn--nostyle">Click to Copy</button>
