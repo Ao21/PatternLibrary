@@ -1,0 +1,13 @@
+:host,
+text-block{
+	color:black;
+	.c-extend-bar.isExtended + .c-text-block {
+		display: none;
+	}
+	
+	.c-text-block{
+		width:100%;
+		float: left;
+		transform:translateZ(0);
+	}
+}
