@@ -3,3 +3,44 @@
 		transition:0.5s all (150ms * $i);
 	}
 }
+
+
+.animated {
+	transition:0.3s all;
+}
+
+.ng-enter {
+	display:block;
+}
+
+.ng-animate {
+	
+	opacity: 1!important;
+}
+
+.ng-exit {
+	opacity:0!important;
+}
+
+
+.full-width{
+	transition: 0.3s width;
+	width:100%!important;
+}
+
+.zero-width{
+	width:0!important;
+	opacity:0;
+}
+.zero-height{
+	min-height:0!important;
+	opacity:0;
+}
+.animate-hidden {
+	opacity: 0;
+}
+
+.animate-normal {
+	opacity:1;
+	transform: translate(0,0) scale(1);
+}
