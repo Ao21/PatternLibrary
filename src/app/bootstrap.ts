@@ -14,7 +14,7 @@ import {FORM_PROVIDERS, NG_VALIDATORS, Validators } from 'angular2/common';
 import {ROUTER_PROVIDERS, HashLocationStrategy, LocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
-import {SVGInline, CodeHighlight, CopyToClipboard} from './directives/directives_modules';
+import {SVGInline, CodeHighlight, CopyToClipboard, ANIMATION_DIRECTIVES} from './directives/directives_modules';
 import {APP_STORES} from './stores/stores_modules.ts'
 import {APP_SERVICES} from './services/services_modules';
 import {COMMON_PROVIDERS} from './common/common_modules.ts'
@@ -39,6 +39,7 @@ export function main() {
     APP_SERVICES,
     COMMON_PROVIDERS,
     APP_STORES,
+    ANIMATION_DIRECTIVES,
     provide(PLATFORM_DIRECTIVES, { useValue: SVGInline, multi: true }),
     provide(PLATFORM_DIRECTIVES, { useValue: CodeHighlight, multi: true }),
     

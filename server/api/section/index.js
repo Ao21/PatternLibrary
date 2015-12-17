@@ -10,9 +10,9 @@ router.post('/', controller.add);
 router.post('/addPattern', controller.addPattern);
 router.post('/addComponent', controller.addSectionComponent);
 router.post('/updateComponent', controller.updateSectionComponent);
+router.post('/removeComponent', controller.removeSectionComponent);
 router.get('/:url', controller.find);
 router.post('/:id', controller.update);
-
 
 
 module.exports = router;

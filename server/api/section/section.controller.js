@@ -53,17 +53,37 @@ exports.addPattern = function (req, res) {
 	})
 }
 exports.addSectionComponent = function (req, res) {
+	console.log(req.body);
 	Section.findOne({ '_id': req.body.sectionId }, function (err, section) {
-		section.data.push({
-			component: req.body._id,
-			index: 0
-		})
+
+		var sectionComponentObj = {}
+		sectionComponentObj.component = req.body._id;
+		sectionComponentObj.index = 0;
+		sectionComponentObj.data = req.body.data ? req.body.data : null;
+
+		section.data.push(sectionComponentObj)
 		section.save(function (err) {
 			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.component').exec(function (err, nSection) {
 				res.send(nSection);
 			})
 		});
 	})
+}
+
+exports.removeSectionComponent = function (req, res) {
+	console.log(req.body)
+	Section.findOne({ 'data._id': req.body.sectionId },
+		function (err, doc) {
+			_.forEach(doc.data, function (e, i) {
+				if (e._id == req.body.sectionId) {
+					doc.data.splice(i, 1);
+				}
+			})
+			 doc.save(function (err) {
+				res.send(doc);
+			});
+			
+		})
 }
 
 exports.updateSectionComponent = function (req, res) {

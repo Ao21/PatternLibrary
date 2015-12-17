@@ -15,3 +15,14 @@ var SectionComponent = require('./section_component.model');
 // }, function (err, doc) {
 // 	console.log(err);
 // })
+
+// SectionComponent.create({
+// 	name: 'Text Block',
+// 	ref: 'HTMLView',
+// 	data: {
+// 		html:'Start Writing'
+// 	}
+	
+// }, function (err, doc) {
+// 	console.log(err);
+// })
