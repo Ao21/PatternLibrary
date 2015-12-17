@@ -1,16 +1,22 @@
-<div class="c-extend-bar__open-btn" (click)="openEditor()">+</div>
 <div class="c-extend-bar__bar">
-	<div class="c-extend-bar__close-btn" (click)="closeEditor()">x</div>
-	<div [class.visible]="isActive" id="toolbar">
-		<select-dropdown *ngIf="isExtended" (change)="updateSize($event)" class="dropdown--menu" >
-			<select-item value="10px">Selection 1</select-item>
-			<select-item value="32px">Selection 2</select-item>
-		</select-dropdown>
-		<button class="ql-bold btn--toolbar">B</button>
-		<button class="ql-italic btn--toolbar">i</button>
+	<div class="c-extend-bar__background"></div>
+	<div class="c-extend-bar__buttons">
+		<button *ngIf="!isExtended"  class="btn c-extend-bar__btn c-extend-bar__open-btn" (click)="openEditor()">O</button>
+		<button *ngIf="isExtended" class="btn c-extend-bar__btn c-extend-bar__close-btn" (click)="closeEditor()">x</button>
+		<button *ngIf="isExtended" class="btn c-extend-bar__btn c-extend-bar__alt-btn" (click)="save()"><img svg src="images/icons/tick.svg" alt="Tick Mark to Save Text"></button>
 	</div>
-	<div id="editor">
-		<div>Start writing</div>
+	<div [animate-in]="isExtended" class="c-extend-bar__content">
+		<div [class.visible]="isActive" id="toolbar">
+			<select-dropdown *ngIf="isExtended" (change)="updateSize($event)" class="dropdown--menu" >
+				<select-item value="12px">Selection 1</select-item>
+				<select-item value="32px">Selection 2</select-item>
+			</select-dropdown>
+			<button class="ql-bold btn--toolbar">B</button>
+			<button class="ql-italic btn--toolbar">i</button>
+		</div>
+		<div id="editor">
+			<div></div>
+		</div>
 	</div>
 </div>
 

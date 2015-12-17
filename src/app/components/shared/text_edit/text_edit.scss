@@ -1,7 +1,16 @@
 :host,
 text-edit{
-	.c-extend-bar__bar{
+	.c-extend-bar__background{
 		background-color: black;
+	}
+	.c-extend-bar__alt-btn {
+		svg {
+    		width: 10px;
+    		margin-left: -2px;
+			path {
+				fill: white;
+			}
+		}
 	}
 	#toolbar{
 		height: 50px;
@@ -26,4 +35,5 @@ text-edit{
 		height: initial;
 		padding: 12px 0;
 	}
+	
 }

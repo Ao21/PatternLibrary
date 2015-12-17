@@ -1,4 +1,4 @@
-import { Component, View, ElementRef } from 'angular2/core';
+import { Component, View, ElementRef, EventEmitter } from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import { isPresent} from 'angular2/src/facade/lang';
 import {SelectDropdown, SelectItem} from './../../base/base_modules.ts';
@@ -7,6 +7,8 @@ let styles = require('./text_edit.scss');
 
 @Component({
 	selector: 'text-edit',
+	inputs: ['data'],
+	outputs: ['onSave','onIsExtended'],
 	host: {
 		'[class.c-extend-bar]': 'true',
 		'[class.isExtended]': 'isExtended'
@@ -20,22 +22,45 @@ let styles = require('./text_edit.scss');
 export class TextEdit {
 	isExtended: boolean = false;
 	quill: any;
+	data: any;
 	range: any;
+	onSave: EventEmitter<any> = new EventEmitter;
+	onIsExtended: EventEmitter<any> = new EventEmitter();
+	
 	constructor(
 		public el: ElementRef
 	) { }
 	openEditor() {
 		this.isExtended = true;
+		this.onIsExtended.emit(true);
 		var editor = DOM.querySelector(this.el.nativeElement, '#editor');
 		this.quill = new Quill(editor);
 		this.quill.addModule('toolbar', {
 			container: DOM.querySelector(this.el.nativeElement, '#toolbar')
 		});
+		if (this.data.quillData) {
+			this.quill.setContents(this.data.quillData)
+		} else {
+			this.quill.setHTML(this.data.html)
+		}
+		    
 
 	}
 	closeEditor() { 
 		this.quill.destroy();
 		this.isExtended = false;
+		this.onIsExtended.emit(false);
+	}
+	
+	save() {
+		let object = {
+			html: this.quill.getHTML(),
+			quillData: this.quill.getContents()
+		}
+
+		this.onSave.emit(object);
+		
+		console.log(this.quill);
 	}
 
 
@@ -59,7 +84,6 @@ export class TextEdit {
 		this.getSelection((start, end) => {
 			
 			if (isPresent(start) && !isPresent(end)) {
-				console.log('prepare format');
 				this.quill.prepareFormat('size', event);
 			}
 			else if (isPresent(start) && isPresent(end)) {
