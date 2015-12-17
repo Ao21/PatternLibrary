@@ -8,7 +8,7 @@ let styles = require('./component_config.scss');
 
 @Component({
 	selector: 'component-config',
-	inputs: ['data', 'section']
+	inputs: ['data', 'sectionComponent']
 })
 @View({
 	template: template,
@@ -17,7 +17,7 @@ let styles = require('./component_config.scss');
 })
 export class ComponentConfig implements OnInit {
 	componentConfigForm: NgForm;
-	section: any;
+	sectionComponent: any;
 	form: ControlGroup;
 	data: any;
 	fields: any;
@@ -49,7 +49,9 @@ export class ComponentConfig implements OnInit {
 
 	onSubmit() {
 		var data = this.form.value;
-		this.sectionStore.updateComponent(this.section.component._id, data ,this.section._id);
-
+		this.sectionStore.updateComponent(this.sectionComponent._id, data);
+	}
+	close(){
+		this.sectionStore.removeComponent(this.sectionComponent._id);
 	}
 }

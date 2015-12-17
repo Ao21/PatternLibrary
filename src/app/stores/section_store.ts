@@ -54,14 +54,23 @@ export class SectionStore extends Store {
 		)
 	}
 	
-	updateComponent(componentId, data, sectionId) {
-		console.log(componentId, data, sectionId);
+	updateComponent(sectionId, data) {
 		let obj = {
 			sectionId: sectionId,
-			componentId: componentId,
 			data: data
 		}
-		this.sectionService.updateQuery(obj).subscribe(
+		this.sectionService.updateComponent(obj).subscribe(
+			res => {
+				console.log(res);
+			}
+		);
+	}
+	
+	removeComponent(sectionId) {
+		let obj = {
+			sectionId: sectionId
+		}
+		this.sectionService.removeComponent(obj).subscribe(
 			res => {
 				console.log(res);
 			}

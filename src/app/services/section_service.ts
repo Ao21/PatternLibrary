@@ -52,10 +52,16 @@ export class SectionService {
 		
 	}
 	
-	updateQuery(obj) {
+	updateComponent(obj) {
 		var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 		return this.http.post(`${this.url}/updateComponent`, JSON.stringify(obj), { headers: headers });
+	}
+	
+	removeComponent(obj) {
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		return this.http.post(`${this.url}/removeComponent`, JSON.stringify(obj), { headers: headers });
 	}
 	
 	addPattern(pattern) {

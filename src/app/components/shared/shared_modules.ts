@@ -11,6 +11,7 @@ import {AddPattern} from './add_pattern/add_pattern';
 import {AddComponent} from './add_component/add_component.ts';
 import {FormComponent} from './form_component/form_component.ts';
 import {TextEdit} from './text_edit/text_edit';
+import {TextBlock} from './text_block/text_block';
 import {UrlCreatorInput} from './url_creator/url_creator';
 import {ComponentConfig} from './component_config/component_config.ts';
 import {AutoComplete, AutocompleteOption} from './autocomplete/autocomplete_modules.ts';
@@ -28,6 +29,7 @@ export * from './add_pattern/add_pattern';
 export * from './add_component/add_component.ts';
 export * from './form_component/form_component.ts';
 export * from './text_edit/text_edit';
+export * from './text_block/text_block';
 export * from './url_creator/url_creator';
 export * from './component_config/component_config.ts';
 export * from './autocomplete/autocomplete_modules.ts';
@@ -49,6 +51,7 @@ export var SHARED_COMPONENTS: Array<any> = [
 	AddComponent,
 	FormComponent,
 	TextEdit,
+	TextBlock,
 	UrlCreatorInput,
 	ComponentConfig,
 	

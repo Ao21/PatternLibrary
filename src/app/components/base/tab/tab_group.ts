@@ -10,6 +10,8 @@ Optional,
 OnChanges,
 OnInit,
 EventEmitter,
+Query,
+QueryList
 } from 'angular2/core';
 
 import {FORM_DIRECTIVES,NgFor,NgFormControl} from 'angular2/common'
@@ -52,6 +54,7 @@ export class TabsGroup {
 	tabindex: number;
 	
 	constructor(
+		@Query(Tab) public queryTabs: QueryList<Tab>,
 		@Attribute('tabindex') tabindex: string,
 		@Attribute('disabled') disabled: string,
 		public tabsDispatcher: TabsDispatcher
@@ -64,7 +67,9 @@ export class TabsGroup {
 		this.disabled = isPresent(disabled);
 		this.tabindex = isPresent(tabindex) ? NumberWrapper.parseInt(tabindex, 10) : 0;
 		
+		
 	}
+	
 	
 	getName(): string {
 		return this._name;
@@ -105,6 +110,10 @@ export class TabsGroup {
 	
 	register(tab: Tab) {
 		this._tabs.push(tab);
+		this._tabs[0].isSelected =true
+		if(tab.isSelected) {
+			this.select(tab);
+		}
 	}
 	
 	

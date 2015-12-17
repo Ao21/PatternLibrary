@@ -11,8 +11,9 @@ let styles = require('./component_loader.scss');
 
 @Component({
 	selector: 'component-loader',
-	inputs: ['loader', 'data', 'config','section']
+	inputs: ['loader', 'data', 'config','sectionComponent:section-component']
 })
+    
     
 @View({
 	styles:[styles],    
@@ -22,7 +23,7 @@ let styles = require('./component_loader.scss');
 export class ComponentLoader implements OnInit {
 	loader: string;
 	data: any;
-	section: any;
+	sectionComponent: any;
 	isConfigRequired: boolean = false;
 	component: any;
 	config: any;
@@ -38,9 +39,12 @@ export class ComponentLoader implements OnInit {
 
 
 	ngOnInit() {
+		
 		let comp = _.find(SHARED_COMPONENTS, (e) => {
-			return e.name === this.section.component.ref;
+			return e.name === this.sectionComponent.component.ref;
 		})
+		
+		DOM.addClass(this._el.nativeElement, this.sectionComponent.component.ref);
 		
 
 		if (!comp) {
@@ -50,8 +54,9 @@ export class ComponentLoader implements OnInit {
 		return this._dComponentLoader.loadIntoLocation(comp, this._el, 'child')
 			.then((comp: any) => {
 				this.height = DOM.getProperty(comp.location.nativeElement, 'offsetHeight') + 30;
-				if (this.section.data) {
-					comp.instance.data = this.section.data;
+				if (this.sectionComponent.data) {
+					comp.instance.data = this.sectionComponent.data;
+					comp.instance.sectionComponent = this.sectionComponent;
 					comp.instance.init();
 				} else {
 					this.isConfigRequired = true;

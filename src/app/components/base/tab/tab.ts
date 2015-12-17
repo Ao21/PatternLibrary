@@ -39,7 +39,7 @@ export class Tab implements OnInit {
 	constructor(
 		@Optional() @SkipSelf() @Host() public tabsGroup: TabsGroup,
 		@Attribute('id') id: string,
-		@Attribute('selected') selected: string,
+		@Attribute('selected') selected: any,
 		@Attribute('tabindex') tabindex: string,
 		public tabsDispatcher: TabsDispatcher
 	) {
