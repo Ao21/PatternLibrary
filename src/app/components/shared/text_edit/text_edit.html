@@ -1,7 +1,6 @@
 <div class="c-extend-bar__bar">
 	<div class="c-extend-bar__background"></div>
 	<div class="c-extend-bar__buttons">
-		<button *ngIf="!isExtended"  class="btn c-extend-bar__btn c-extend-bar__open-btn" (click)="openEditor()">O</button>
 		<button *ngIf="isExtended" class="btn c-extend-bar__btn c-extend-bar__close-btn" (click)="closeEditor()">x</button>
 		<button *ngIf="isExtended" class="btn c-extend-bar__btn c-extend-bar__alt-btn" (click)="save()"><img svg src="images/icons/tick.svg" alt="Tick Mark to Save Text"></button>
 	</div>

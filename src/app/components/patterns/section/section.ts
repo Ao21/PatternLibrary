@@ -37,21 +37,28 @@ export class Section {
 			res => {
 				this.section = res.json();
 				this.sectionData = this.section.data;
-				console.log(this.sectionData);
+				this.sectionStore.setActiveSection(this.section);
+				//console.log(this.sectionData);
+				this.subscribe();
 			},
 			err => {
 				this.router.parent.navigate(['./Import'])
 			}
 		)
 		this.fakeData = ['#8DE3FC', '#8DE3FC'];
+		
+		
+	}
+	
+	subscribe() {
 		this.sub = this.sectionStore.subscribe('section', state=> {
+			console.log(state.get());
 			// if (state.get('activeSection')) {
 			// 	//this.section = state.get('activeSection');
-			// 	this.sectionData = state.get(['activeSection','data']);
+			this.sectionData = state.get(['activeSection','data']);
 				
 			// }
 		})
-		
 	}
 	
 	

@@ -32,3 +32,15 @@
     line-height: 25px;
     margin: 0;
 }
+
+.btn--circle {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    padding: 4px 8px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
+    z-index: 99999;
+    margin-top: 5px;
+}

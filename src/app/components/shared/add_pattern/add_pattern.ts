@@ -24,7 +24,9 @@ export class AddPattern implements OnInit {
 		public patternService: PatternService,
 		public sectionStore: SectionStore
 	) {
-		this.patterns = this.patternService.patterns;
+		this.patternService.getPatterns().then((patterns) => {
+			this.patterns = patterns;
+		});
 	}
 	
 	addPattern(pattern, location) {

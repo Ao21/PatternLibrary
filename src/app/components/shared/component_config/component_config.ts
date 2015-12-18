@@ -51,7 +51,8 @@ export class ComponentConfig implements OnInit {
 		var data = this.form.value;
 		this.sectionStore.updateComponent(this.sectionComponent._id, data);
 	}
-	close(){
+	close() {
+		console.log(this.sectionComponent._id);
 		this.sectionStore.removeComponent(this.sectionComponent._id);
 	}
 }

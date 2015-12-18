@@ -1,7 +1,6 @@
 <div class="c-extend-bar__bar">
 	<div class="c-extend-bar__background"></div>
 	<div class="c-extend-bar__buttons">
-		<div *ngIf="!isExtended" class="c-extend-bar__open-btn" (click)="toggleBar(true)">+</div>
 		<div *ngIf="isExtended" class="btn c-extend-bar__btn c-extend-bar__close-btn" (click)="toggleBar(false)">x</div>
 	</div>
 	<div [animate-in]="isExtended" class="c-extend-bar__content">

@@ -1,5 +1,5 @@
 import { Inject, Injectable, Component} from 'angular2/core';
-import {PromiseWrapper, Promise, PromiseCompleter} from 'angular2/src/facade/async';
+import {PromiseWrapper, PromiseCompleter} from 'angular2/src/facade/async';
 import { Http, Headers } from 'angular2/http';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class PatternService {
 	_patternsDict: any = [];
 
 	constructor(public http: Http) {
-		this.getPatterns((e)=>{});
+		this.getPatterns().then();
 	}
 	
 	getAll() {
@@ -40,15 +40,19 @@ export class PatternService {
 	}
 
 	getPatterns(cb?) {
-		return this.http.get(this.url).subscribe(
-			res => {
-				_.forEach(res.json(), (e) => {
-					this._patternsDict[e.ref] = e;
-				})
-				this._patterns = res.json();
-				cb(this._patternsDict, this.patterns);
-			}
-		);
+		let promise = new Promise((res, rej) => {
+			this.http.get(this.url).subscribe(
+				data => {
+					_.forEach(data.json(), (e) => {
+						this._patternsDict[e.ref] = e;
+					})
+					this._patterns = data.json();
+					res(data.json());
+					//cb(this._patternsDict, this.patterns);
+				}
+			);
+		})
+		return promise;
 	}
 
 	addPatternUrl(url: string) {

@@ -7,6 +7,7 @@ export class UI {
 	visibility = {
 		dropzones: false
 	}
+	actionBar = {}
 }
 
 @Injectable()

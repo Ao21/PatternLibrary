@@ -45,11 +45,16 @@ export class SectionStore extends Store {
 		
 	}
 	
+	setActiveSection(section) {
+		this.update(['activeSection'], section);
+	}
+	
 	addComponent(component, location) {
 		component.sectionId = location.location._id;
 		this.sectionService.addComponent(component).subscribe(
 			(res) => {
-				//console.log(res.json());
+				this.update('activeSection', res.json(), 'section');
+				console.log(res.json());
 			}
 		)
 	}
@@ -61,7 +66,8 @@ export class SectionStore extends Store {
 		}
 		this.sectionService.updateComponent(obj).subscribe(
 			res => {
-				console.log(res);
+				this.update('activeSection', res.json(), 'section');
+				console.log(res.json());
 			}
 		);
 	}
@@ -72,7 +78,8 @@ export class SectionStore extends Store {
 		}
 		this.sectionService.removeComponent(obj).subscribe(
 			res => {
-				console.log(res);
+				this.update('activeSection', res.json(), 'section');
+				console.log(res.json());
 			}
 		);
 	}

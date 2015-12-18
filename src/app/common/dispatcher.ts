@@ -12,7 +12,7 @@ export class Dispatcher {
 				channel: channel,
 				topic: topic,
 				callback: callback
-			});
+			}).distinctUntilChanged();
 	}
 
 	publish(

@@ -44,14 +44,6 @@ module.exports = {
   debug: true,
   cache: true,
 
-  verbose: true,
-  displayErrorDetails: true,
-  context: __dirname,
-  stats: {
-    colors: true,
-    reasons: true
-  },
-
   // our Development Server config
   devServer: {
     inline: true,
@@ -157,10 +149,7 @@ module.exports = {
         ]
       }
     ],
-    noParse: [
-      /rtts_assert\/src\/rtts_assert/,
-      /reflect-metadata/
-    ]
+    noParse: [ /zone\.js\/dist\/.+/, /angular2\/bundles\/.+/, /rtts_assert\/src\/rtts_assert/, /reflect-metadata/ ]
   },
   
   sassLoader: {
@@ -200,10 +189,10 @@ module.exports = {
    * When using `templateUrl` and `styleUrls` please use `__filename`
    * rather than `module.id` for `moduleId` in `@View`
    */
-  node: {
-    crypto: false,
-    __filename: true
-  }
+  // node: {
+  //   crypto: false,
+  //   __filename: true
+  // }
 };
 
 // Helper functions

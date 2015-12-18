@@ -16,7 +16,7 @@ let styles = require('./text_block.scss');
 })	    
 export class TextBlock implements OnInit {
 	data: any = {};
-	sectionComponent: any = {}
+	sectionComponent: any;
 	constructor(
 		public sectionStore: SectionStore
 	) { }

@@ -15,6 +15,7 @@ import {TextBlock} from './text_block/text_block';
 import {UrlCreatorInput} from './url_creator/url_creator';
 import {ComponentConfig} from './component_config/component_config.ts';
 import {AutoComplete, AutocompleteOption} from './autocomplete/autocomplete_modules.ts';
+import {ActionBar} from './action_bar/action_bar';
 
 export * from './top_nav/top_nav';
 export * from './side_nav/side_nav';
@@ -33,7 +34,7 @@ export * from './text_block/text_block';
 export * from './url_creator/url_creator';
 export * from './component_config/component_config.ts';
 export * from './autocomplete/autocomplete_modules.ts';
-
+export * from './action_bar/action_bar';
 
 export var SHARED_COMPONENTS: Array<any> = [
 	AutoComplete,
@@ -54,6 +55,7 @@ export var SHARED_COMPONENTS: Array<any> = [
 	TextBlock,
 	UrlCreatorInput,
 	ComponentConfig,
+	ActionBar
 	
 ]
 

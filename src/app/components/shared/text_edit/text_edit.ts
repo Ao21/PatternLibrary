@@ -1,13 +1,14 @@
-import { Component, View, ElementRef, EventEmitter } from 'angular2/core';
+import { Component, View, ElementRef, OnInit, OnChanges, EventEmitter } from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import { isPresent} from 'angular2/src/facade/lang';
 import {SelectDropdown, SelectItem} from './../../base/base_modules.ts';
+import {UIStore} from './../../../stores/stores_modules.ts';
 let template = require('./text_edit.html');
 let styles = require('./text_edit.scss');
 
 @Component({
 	selector: 'text-edit',
-	inputs: ['data'],
+	inputs: ['data','sectionComponent'],
 	outputs: ['onSave','onIsExtended'],
 	host: {
 		'[class.c-extend-bar]': 'true',
@@ -19,8 +20,10 @@ let styles = require('./text_edit.scss');
 	styles: [styles],
 	directives: [SelectDropdown, SelectItem]
 })
-export class TextEdit {
+export class TextEdit implements OnChanges {
+	isRegistered: boolean = false;
 	isExtended: boolean = false;
+	sectionComponent: any;
 	quill: any;
 	data: any;
 	range: any;
@@ -28,7 +31,8 @@ export class TextEdit {
 	onIsExtended: EventEmitter<any> = new EventEmitter();
 	
 	constructor(
-		public el: ElementRef
+		public el: ElementRef,
+		public uiStore: UIStore
 	) { }
 	openEditor() {
 		this.isExtended = true;
@@ -50,6 +54,7 @@ export class TextEdit {
 		this.quill.destroy();
 		this.isExtended = false;
 		this.onIsExtended.emit(false);
+		this.uiStore.update(['actionBar', this.sectionComponent._id, 'textEdit'], false, 'actionBar');
 	}
 	
 	save() {
@@ -59,8 +64,6 @@ export class TextEdit {
 		}
 
 		this.onSave.emit(object);
-		
-		console.log(this.quill);
 	}
 
 
@@ -92,4 +95,24 @@ export class TextEdit {
 		})
 		
 	}
+	
+	ngOnChanges() {
+		if (this.sectionComponent) { 
+			this.register()
+		}
+	}
+	
+	register() {
+		if (!this.isRegistered) {
+			this.uiStore.update(['actionBar', this.sectionComponent._id, 'textEdit'], false, 'actionBar');
+			this.uiStore.subscribe('actionBar', state=> {
+				var a = state.get(['actionBar', this.sectionComponent._id, 'textEdit']);
+				if (a) {
+					this.openEditor();
+				}
+			})
+			this.isRegistered = true;
+		}
+	}
+	
 }

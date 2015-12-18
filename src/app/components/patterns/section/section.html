@@ -1,17 +1,18 @@
 <section id="main" class="">
 	<h1>{{section.name}}</h1>
 	<div *ngIf="!sectionData || sectionData.length == 0">
-		<edit-bar [location]="{locationType:'section',location:section,index: 0}" index="0"></edit-bar>
+		<edit-bar [isExtended]="true" [location]="{locationType:'section',location:section,index: 0}" index="0"></edit-bar>
 		<section>
 			<p>You haven't added any components or patterns yet.</p>
 		</section>
 		
 	</div>
-	<div *ngFor="#entry of sectionData, #i = index">
+	<section *ngFor="#entry of sectionData, #i = index" class="component ">
+		<action-bar [section-component]="entry"></action-bar>
 		<edit-bar [section-component]="entry" [location]="{locationType:'section',location:section,index: i}" [index]="i"></edit-bar>
 		<component-loader *ngIf="entry.component" [section-component]="entry" [config]="entry.component.config"></component-loader>
 		<pattern-loader *ngIf="entry.pattern" [loader]="entry.pattern.ref"></pattern-loader>
-	</div>
+	</section>
 	
 </section>
 

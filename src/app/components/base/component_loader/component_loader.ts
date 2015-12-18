@@ -53,13 +53,16 @@ export class ComponentLoader implements OnInit {
 
 		return this._dComponentLoader.loadIntoLocation(comp, this._el, 'child')
 			.then((comp: any) => {
+				console.log()
 				this.height = DOM.getProperty(comp.location.nativeElement, 'offsetHeight') + 30;
 				if (this.sectionComponent.data) {
 					comp.instance.data = this.sectionComponent.data;
 					comp.instance.sectionComponent = this.sectionComponent;
 					comp.instance.init();
-				} else {
+				} else if (this.sectionComponent.component.config){
 					this.isConfigRequired = true;
+				} else {
+					
 				}
 				
 			});
