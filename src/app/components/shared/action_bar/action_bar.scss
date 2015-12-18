@@ -1,0 +1,108 @@
+@import './../../../../styles/_variables.scss';
+
+:host,
+action-bar{
+	float: left;
+	position: absolute;
+	margin-left: - 38px;
+	z-index:1;
+	
+	&.isVisibile{
+		z-index: 99;
+	}
+	
+	&.isExtended {
+		z-index: 999;
+		
+		.buttons {
+			max-width:500px;
+			pointer-events: auto;
+		}
+	}
+	.btn--opener {
+			background-color:$darkBlue;
+			border:none;
+		}
+	.btn--circle {
+		transition: 0.3s transform;
+		transform: scale(1);
+		margin-right: 5px;
+		&.hidden{
+			transform: scale(0);
+		}
+	}
+	
+	.buttons{
+		
+		&.hidden{
+			opacity:0!important;
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 115%;
+			background-color: $darkBlue;
+			left: -35px;
+			border-radius: 13px;
+			z-index: -1;
+			transition:300ms all;
+
+		}
+		pointer-events: none;
+		display: flex;
+		max-width:25px;
+		position: relative;
+		flex-direction: row;
+		opacity:0;
+		@for $i from 0 through 10 {
+			.btn:nth-of-type(#{$i}) {
+				transform: translate3d(70px + ($i * 30px),0,0) rotate(360deg);
+				opacity:0;
+				transition:300ms all 150ms * $i;
+			}
+		}
+		
+	}
+	.extending.buttons {
+		
+		&:after{
+			content: "";
+			position: absolute;
+			width: 130px;
+			height: 115%;
+			background-color: $darkBlue;
+			left: -35px;
+			border-radius: 13px;
+			z-index: -1;
+
+		}
+		opacity:1;
+		.btn {
+			opacity:1;
+			transform: translate3d(0,0,0) rotate(0);
+		}
+		
+		@for $i from 0 through 10 {
+			&.group-length--#{$i}:after{
+				width: 100px + ($i * 30px);
+			}
+		}
+	}
+	
+	.buttons.hiding {
+		&:after{
+			background-color: transparent;
+			transition-delay: 600ms;
+			width:35px!important;
+			
+		}
+		.btn {
+			opacity:0;
+			transition-delay: 0!important;
+			//transform: translate3d(-,0,0) rotate(0);
+		}
+	}
+	
+	
+}

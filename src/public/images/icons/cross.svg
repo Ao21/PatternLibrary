@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100%" height="100%" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>cross</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="cross" sketch:type="MSArtboardGroup" fill="#000000">
+            <path d="M44,24.7894737 L44,21.6315789 C44,20.0731579 43.8110526,19.7894737 42.1578947,19.7894737 L28.2105263,19.7894737 L28.2105263,5.84210526 C28.2105263,4.28368421 27.9578947,4 26.3684211,4 L23.2105263,4 C21.5789474,4 20.8421053,4.28368421 20.8421053,5.84210526 L20.8421053,19.7894737 L6.36842105,19.7894737 C4.81,19.7894737 4,20.0421053 4,21.6315789 L4,24.7894737 C4,26.4210526 4.81,27.1578947 6.36842105,27.1578947 L20.8421053,27.1578947 L20.8421053,41.6315789 C20.8421053,43.2210526 21.6110526,44 23.2105263,44 L26.3684211,44 C27.9268421,44 28.2105263,43.2847368 28.2105263,41.6315789 L28.2105263,27.1578947 L42.1578947,27.1578947 C43.7473684,27.1578947 44,26.3889474 44,24.7894737 L44,24.7894737 Z" id="Shape" sketch:type="MSShapeGroup" transform="translate(24.000000, 24.000000) rotate(-315.000000) translate(-24.000000, -24.000000) "></path>
+        </g>
+    </g>
+</svg>

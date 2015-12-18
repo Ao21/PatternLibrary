@@ -1,0 +1,8 @@
+<div [class.hidden]="!isVisible" class="btn btn--opener btn--circle" (click)="toggleActionButtons()"></div>
+<div class="buttons group-length--{{actions.length}}" [class.hidden]="!isVisible">
+	<div [class.hidden]="!isVisible" *ngFor="#action of actions" class="btn btn--circle" (click)="trigger(action)">
+		<img svg src="images/icons/{{action.type}}-icon.svg" alt="">
+	</div>
+		<div [class.hidden]="!isVisible" class="btn btn--circle" (click)="delete()"><img svg src="images/icons/trash.svg" alt=""></div>
+	<div [class.hidden]="!isVisible" class="btn btn--circle" (click)="toggleActionButtons()"><img svg src="images/icons/cross.svg" alt=""></div>
+</div>

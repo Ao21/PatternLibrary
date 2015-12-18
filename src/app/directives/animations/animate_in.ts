@@ -14,7 +14,6 @@ export class AnimateIn implements OnChanges{
 		public build: AnimationBuilder
 	) {
 		let animation = build.css();
-		console.log('exists');
 	}
 	
 	ngOnChanges() {
