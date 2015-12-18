@@ -26,3 +26,12 @@ var SectionComponent = require('./section_component.model');
 // }, function (err, doc) {
 // 	console.log(err);
 // })
+
+
+// SectionComponent.create({
+// 	name: 'Comments',
+// 	ref: 'Comments',
+	
+// }, function (err, doc) {
+// 	console.log(err);
+// })

@@ -46,14 +46,13 @@ exports.addPattern = function (req, res) {
 			index: 0
 		})
 		section.save(function (err) {
-			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.pattern').exec(function (err, nSection) {
+			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.pattern data.component').exec(function (err, nSection) {
 				res.send(nSection);
 			})
 		});
 	})
 }
 exports.addSectionComponent = function (req, res) {
-	console.log(req.body);
 	Section.findOne({ '_id': req.body.sectionId }, function (err, section) {
 
 		var sectionComponentObj = {}
@@ -63,7 +62,7 @@ exports.addSectionComponent = function (req, res) {
 
 		section.data.push(sectionComponentObj)
 		section.save(function (err) {
-			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.component').exec(function (err, nSection) {
+			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.pattern data.component').exec(function (err, nSection) {
 				res.send(nSection);
 			})
 		});
@@ -71,14 +70,18 @@ exports.addSectionComponent = function (req, res) {
 }
 
 exports.removeSectionComponent = function (req, res) {
-	console.log(req.body)
-	Section.findOne({ 'data._id': req.body.sectionId },
+	Section.findOne({ 'data._id': req.body.sectionId }).deepPopulate('data.pattern data.component').exec(
 		function (err, doc) {
-			_.forEach(doc.data, function (e, i) {
-				if (e._id == req.body.sectionId) {
-					doc.data.splice(i, 1);
-				}
-			})
+			
+			if (!doc) {
+				return res.status(404).send('no find item!')
+			}
+			
+			var idx = null;
+			if (_.find(doc.data, function (e, i) { if (e._id == req.body.sectionId) { idx = i; return true;}})) {
+				doc.data.splice(idx, 1);
+			}
+
 			 doc.save(function (err) {
 				res.send(doc);
 			});
@@ -87,7 +90,7 @@ exports.removeSectionComponent = function (req, res) {
 }
 
 exports.updateSectionComponent = function (req, res) {
-	Section.findOne({ 'data._id': req.body.sectionId },
+	Section.findOne({ 'data._id': req.body.sectionId }).deepPopulate('data.pattern data.component').exec(
 		(function (err, doc) {
 			_.forEach(doc.data, function (e, i) {
 				if (e._id == req.body.sectionId) {
