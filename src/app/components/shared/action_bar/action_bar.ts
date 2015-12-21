@@ -31,21 +31,18 @@ export class ActionBar implements OnInit {
 	) {
 	}
 
-	ngOnInit() {
-		if (this.sectionComponent) {
+    ngOnInit() {
+        if (this.sectionComponent) {
 			this.uiStore.subscribe('actionBar', state=> {
 				this.actions = [];
-				let vis = false;
-				_.forIn(state.get(['actionBar', this.sectionComponent._id]), (value, key) => {
-					if (value) {
-						vis = true;
-					}
-					
+                let vis = false;
+                _.forIn(state.get(['actionBar', this.sectionComponent._id]), (value, key) => {
+                    vis = value;
 					let obj = {};
 					obj['type'] = key;
 					obj['value'] = value;
 					this.actions.push(obj)
-				});
+                });
 				this.isVisible = !vis;
 			})
 		}
@@ -80,7 +77,6 @@ export class ActionBar implements OnInit {
 	}
 	
 	delete() {
-		console.log(this.sectionComponent);
 		this.sectionStore.removeComponent(this.sectionComponent._id);
 	}
 }

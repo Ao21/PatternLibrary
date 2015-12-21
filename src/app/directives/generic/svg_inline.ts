@@ -26,7 +26,7 @@ export class SVGInline implements OnInit {
 			this._el.nativeElement.parentElement.replaceChild(doc.documentElement, this._el.nativeElement)
 			},
 			(err) => {
-				console.log('not found');
+				//console.log('not found');
 		})
 	}
 }

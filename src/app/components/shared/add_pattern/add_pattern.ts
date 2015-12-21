@@ -19,7 +19,8 @@ let styles = require('./add_pattern.scss');
 export class AddPattern implements OnInit {
 	patterns: any;
 	isExtended: boolean;
-	index: any;
+    index: any;
+    location: any;
 	constructor(
 		public patternService: PatternService,
 		public sectionStore: SectionStore
@@ -30,7 +31,7 @@ export class AddPattern implements OnInit {
 	}
 	
 	addPattern(pattern, location) {
-		this.sectionStore.addPattern(pattern, this.index);
+		this.sectionStore.addPattern(pattern, this.location);
 	}
 	
 	ngOnInit() {

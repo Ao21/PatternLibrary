@@ -1,8 +1,12 @@
+@import './../../../../styles/_variables.scss';
+
 :host,
 component-loader {
 	width: 100%;
 	float: left;
 	position: relative;
+    transform:translateZ(0);
+    margin-bottom: $margin;
 	
 	
 	&.TextBlock{

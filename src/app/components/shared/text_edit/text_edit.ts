@@ -24,7 +24,7 @@ export class TextEdit implements OnChanges {
 	isRegistered: boolean = false;
 	isExtended: boolean = false;
 	sectionComponent: any;
-	quill: any;
+    quill: any;
 	data: any;
 	range: any;
 	onSave: EventEmitter<any> = new EventEmitter;
@@ -44,7 +44,7 @@ export class TextEdit implements OnChanges {
 		});
 		if (this.data.quillData) {
 			this.quill.setContents(this.data.quillData)
-		} else {
+		} else if(this.data.html) {
 			this.quill.setHTML(this.data.html)
 		}
 		    
@@ -60,7 +60,8 @@ export class TextEdit implements OnChanges {
 	save() {
 		let object = {
 			html: this.quill.getHTML(),
-			quillData: this.quill.getContents()
+            quillData: this.quill.getContents(),
+            firstInit: false
 		}
 
 		this.onSave.emit(object);
@@ -99,7 +100,10 @@ export class TextEdit implements OnChanges {
 	ngOnChanges() {
 		if (this.sectionComponent) { 
 			this.register()
-		}
+        }
+        if (this.data.firstInit) {
+            this.openEditor();
+        }
 	}
 	
 	register() {

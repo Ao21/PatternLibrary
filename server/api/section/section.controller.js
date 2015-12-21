@@ -41,10 +41,15 @@ exports.update = function (req, res) {
 
 exports.addPattern = function (req, res) {
 	Section.findOne({ '_id': req.body.sectionId }, function (err, section) {
-		section.data.push({
-			pattern: req.body._id,
-			index: 0
-		})
+
+        var patternObj = {};
+        patternObj.pattern = req.body._id;
+        patternObj.index = req.body.index;
+        section.data.splice(req.body.index, 0, patternObj);
+        // section.data.push({
+		// 	pattern: req.body._id,
+		// 	index: req.body.index
+		// })
 		section.save(function (err) {
 			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.pattern data.component').exec(function (err, nSection) {
 				res.send(nSection);
@@ -56,11 +61,12 @@ exports.addSectionComponent = function (req, res) {
 	Section.findOne({ '_id': req.body.sectionId }, function (err, section) {
 
 		var sectionComponentObj = {}
-		sectionComponentObj.component = req.body._id;
-		sectionComponentObj.index = 0;
+        sectionComponentObj.component = req.body._id;
+        console.log(req.body.index);
+		sectionComponentObj.index = req.body.index;
 		sectionComponentObj.data = req.body.data ? req.body.data : null;
-
-		section.data.push(sectionComponentObj)
+        section.data.splice(req.body.index,0, sectionComponentObj)
+		//section.data.push(sectionComponentObj)
 		section.save(function (err) {
 			Section.findOne({ '_id': req.body.sectionId }).deepPopulate('data.pattern data.component').exec(function (err, nSection) {
 				res.send(nSection);

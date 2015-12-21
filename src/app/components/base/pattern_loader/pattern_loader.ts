@@ -16,7 +16,8 @@ let styles = require('./pattern_loader.scss');
 	styles: [styles]
 })
 export class PatternLoader implements OnInit {
-	loader: any;
+    loader: any;
+    shadow: any;
 	constructor(
 		public assetsService: AssetsService,
 		public patternService: PatternService,
@@ -25,45 +26,36 @@ export class PatternLoader implements OnInit {
 		public http: Http
 	) {
 
-
-
-		this.http.get('http://localhost:8080/api/' + 'pattern').subscribe(
-			res=> {
-				//console.log(res.json());
-				//var results: any = res.json()[0];
-				//console.log(results);
-
-				// var shadow = this.el.nativeElement.createShadowRoot();
-				// var template = document.createElement('discount-code');
-				// var styles = DOM.createStyleElement(results.baseStyles);
-				// var styles3 = DOM.createStyleElement(results.bootstrap);
-				// template.innerHTML = results.data.markup.example;
-				// shadow.appendChild(styles3);
-				// shadow.appendChild(styles);
-				// shadow.appendChild(template);
-
-
-			
-			}
-		);
-
 	}
 
-	ngOnInit() {		
-		var pattern = this.patternService._patternsDict[this.loader];
-		var shadow = this.el.nativeElement.createShadowRoot();
-		var template = document.createElement(pattern.dom);
-		var styles = DOM.createStyleElement(pattern.file);
-		template.innerHTML = pattern.data[0].markup.example;
+    ngOnInit() {		
+        
+        let pattern = this.patternService._patternsDict[this.loader];
+        
+        
+        var element = DOM.createElement('div');
+        DOM.addClass(element, 'pattern');
+        DOM.addClass(element, pattern.ref);
+
+        DOM.replaceChild(this.el.nativeElement, element, DOM.querySelector(this.el.nativeElement, '.pattern'));
+
+        var shadow = DOM.createShadowRoot(DOM.querySelector(this.el.nativeElement, '.pattern'));
+		let template = document.createElement(pattern.dom);
+
+        let styles = DOM.createStyleElement(pattern.file);
+        template.innerHTML = pattern.data[0].markup.example;
+        shadow.innerHTML = pattern.data[0].markup.example;;
+        
 		this.assetsService.generateAssets().then(assets=> {
 			_.forEach(pattern.data[0].assets, (e) => {
-				var style = DOM.createStyleElement(assets[e].data);
+				let style = DOM.createStyleElement(assets[e].data);
 				shadow.appendChild(style);
 			})
 			shadow.appendChild(styles);
-			shadow.appendChild(template);
-		})
+            //shadow.innerHTML = pattern.data[0].markup.example;;
 
+        })
+        
 	}
 
 	createComponent(res) {

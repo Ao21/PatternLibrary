@@ -6,10 +6,10 @@
 	<div [animate-in]="isExtended" class="c-extend-bar__content">
 		<tab-group class="edit_bar_tabs">
 			<tab value="Patterns" selected>
-				<add-pattern [index]="index" *ngIf="isExtended"></add-pattern>
+				<add-pattern [index]="index" [location]="location" *ngIf="isExtended"></add-pattern>
 			</tab>
 			<tab value="Components">
-				<add-component [location]="location" *ngIf="isExtended"></add-component>
+				<add-component [index]="index" [location]="location" *ngIf="isExtended"></add-component>
 			</tab>
 		</tab-group>
 	</div>

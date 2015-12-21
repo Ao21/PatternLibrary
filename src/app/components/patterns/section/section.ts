@@ -7,6 +7,8 @@ import {ROUTER_DIRECTIVES,Router, RouteParams, CanActivate, OnActivate} from 'an
 
 import {UIStore, SectionStore} from './../../../stores/stores_modules.ts'
 import {PatternService, SectionService} from './../../../services/services_modules.ts';
+import {OrderBy} from './../../../pipes/orderBy.ts';
+
 let template = require('./section.html');
 let styles = require('./section.scss');
 
@@ -16,7 +18,8 @@ let styles = require('./section.scss');
 @View({
 	template: template,
 	styles: [styles],
-	directives: [CORE_DIRECTIVES, SHARED_COMPONENTS,BASE_COMPONENTS,DRAGGING_DIRECTIVES, HoverEdit]
+    directives: [CORE_DIRECTIVES, SHARED_COMPONENTS, BASE_COMPONENTS, DRAGGING_DIRECTIVES, HoverEdit],
+    pipes: [OrderBy]
 })	      
 export class Section {
 	fakeData: any;
@@ -27,7 +30,8 @@ export class Section {
 	sub: ISubscriptionDefinition<SectionStore>
 	constructor(
 		@Host() public router: Router,
-		public routeParams: RouteParams,
+        public routeParams: RouteParams,
+        public uiStore: UIStore,
 		public SectionService: SectionService,
 		public sectionStore: SectionStore,
 		public patternService: PatternService
@@ -52,10 +56,12 @@ export class Section {
 	
 	subscribe() {
 		this.sub = this.sectionStore.subscribe('section', state=> {
-			console.log(state.get());
+			//console.log(state.get());
 			// if (state.get('activeSection')) {
 			// 	//this.section = state.get('activeSection');
-			this.sectionData = state.get(['activeSection','data']);
+
+            this.sectionData = state.get(['activeSection', 'data']);
+            // this.uiStore.emitUpdate('actionBar');
 				
 			// }
 		})

@@ -96,7 +96,7 @@ export class Store {
 		let sub = this._dispatcher.subscribe(this._channel, topic + '.is-updated', (state: any) => {
 			cb(state);
 		});
-		//this.emitUpdate(topic);
+		this.emitUpdate(topic);
 		return sub;
 	}
 	

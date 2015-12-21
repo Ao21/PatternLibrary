@@ -9,7 +9,7 @@
 	</div>
 	<section *ngFor="#entry of sectionData, #i = index" class="component ">
 		<action-bar [section-component]="entry"></action-bar>
-		<edit-bar [section-component]="entry" [location]="{locationType:'section',location:section,index: i}" [index]="i"></edit-bar>
+		<edit-bar [section-component]="entry" [location]="{locationType:'section',location:section,index: i+1}" [index]="i"></edit-bar>
 		<component-loader *ngIf="entry.component" [section-component]="entry" [config]="entry.component.config"></component-loader>
 		<pattern-loader *ngIf="entry.pattern" [loader]="entry.pattern.ref"></pattern-loader>
 	</section>

@@ -50,11 +50,11 @@ export class SectionStore extends Store {
 	}
 	
 	addComponent(component, location) {
-		component.sectionId = location.location._id;
+        component.sectionId = location.location._id;
+        component.index = location.index;
 		this.sectionService.addComponent(component).subscribe(
 			(res) => {
 				this.update('activeSection', res.json(), 'section');
-				console.log(res.json());
 			}
 		)
 	}
@@ -67,7 +67,6 @@ export class SectionStore extends Store {
 		this.sectionService.updateComponent(obj).subscribe(
 			res => {
 				this.update('activeSection', res.json(), 'section');
-				console.log(res.json());
 			}
 		);
 	}
@@ -79,40 +78,19 @@ export class SectionStore extends Store {
 		this.sectionService.removeComponent(obj).subscribe(
 			res => {
 				this.update('activeSection', res.json(), 'section');
-				console.log(res.json());
 			}
 		);
 	}
 
 	addPattern(pattern, location) {
-		
-		var obj = {
-			ref: pattern.ref,
-			type: 'pattern',
-			dom:'discount-code'
-		}
-		var comp = {
-			ref: 'ColourDisplayer',
-			type: 'component',
-			data: ['#8DE3FC', '#8DE3FC'],
-		}
-		
-		let activeSection = this.get('activeSection');
-		if (!this.exists(['activeSection','data'])) {
-			this.update(['activeSection', 'data'], [obj]);
-		} else {
-			this.push(['activeSection', 'data'], obj);
-		}
-		
-		pattern.sectionId = activeSection._id;
-
+        pattern.sectionId = location.location._id;
+        pattern.index = location.index;
 		this.sectionService.addPattern(pattern).subscribe(
 			res => {
 				this.update('activeSection', res.json(), 'section');
 			}
 		);
 		
-		//this.push(['components'], obj, 'section')
 	}
 
 }

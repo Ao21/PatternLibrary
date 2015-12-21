@@ -1,4 +1,4 @@
-import { Component, View, EventEmitter, OnInit } from 'angular2/core';
+import { Component, View, EventEmitter, OnInit, OnDestroy } from 'angular2/core';
 import { Tab, TabsGroup} from './../../base/tab/tab_modules.ts';
 import {AddPattern} from './../add_pattern/add_pattern.ts';
 import {AddComponent} from './../add_component/add_component';
@@ -56,7 +56,7 @@ export class EditBar implements OnInit {
 			})
 		}
 
-	}
+    }
 }
 
 

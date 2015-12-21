@@ -61,7 +61,6 @@ export class ComponentService {
 					_.forEach(data.json(), (e) => {
 						this._componentsDict[e.ref] = e;
 					})
-					//console.log(data.json())
 					this._components = data.json();
 					res(data.json())
 				}

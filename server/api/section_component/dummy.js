@@ -20,6 +20,7 @@ var SectionComponent = require('./section_component.model');
 // 	name: 'Text Block',
 // 	ref: 'HTMLView',
 // 	data: {
+//      firstInit: true        
 // 		html:'Start Writing'
 // 	}
 	

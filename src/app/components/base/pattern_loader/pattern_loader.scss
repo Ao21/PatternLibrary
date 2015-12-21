@@ -6,4 +6,10 @@ pattern-loader
 	float:left;
 	width:100%;
 	transform:translateZ(0);
+    margin-bottom: $margin;
+    
+    .multiSelect {
+        min-height: 120px;
+        padding-top: 82px;
+    }
 }
