@@ -13,10 +13,10 @@ export class CodeHighlight implements OnInit {
 	}
 	
 	ngOnChanges() {
-		console.log('hi');
+		//console.log('hi');
 	}
 	ngOnInit() {
-		console.log(this._el.nativeElement.innerHTML)
+		//console.log(this._el.nativeElement.innerHTML)
 		//hljs.highlightBlock(this._el.nativeElement);
 	}
 }

@@ -18,6 +18,7 @@ import {SVGInline, CodeHighlight, CopyToClipboard, ANIMATION_DIRECTIVES} from '.
 import {APP_STORES} from './stores/stores_modules.ts'
 import {APP_SERVICES} from './services/services_modules';
 import {COMMON_PROVIDERS} from './common/common_modules.ts'
+import {SHARED_PIPES} from './pipes/pipes.ts';
 
 
 /*
@@ -40,6 +41,7 @@ export function main() {
     COMMON_PROVIDERS,
     APP_STORES,
     ANIMATION_DIRECTIVES,
+    SHARED_PIPES,
     provide(PLATFORM_DIRECTIVES, { useValue: SVGInline, multi: true }),
     provide(PLATFORM_DIRECTIVES, { useValue: CodeHighlight, multi: true }),
     

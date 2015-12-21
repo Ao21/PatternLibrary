@@ -13,7 +13,6 @@ import {Pipe} from 'angular2/core';
 })
 export class Highlight {
 	transform(value: any, args: any[] = null): any {
-		console.log(args);
 		hljs.configure({
 			tabReplace: '    ',
 			useBR: true
