@@ -1,7 +1,7 @@
 <section id="main" class="contextBar--isActive">
 	<h1>{{section.name}}</h1>
 	<div *ngIf="!sectionData || sectionData.length == 0">
-		<edit-bar [isExtended]="true" [location]="{locationType:'section',location:section,index: 0}" index="0"></edit-bar>
+		<edit-bar [isExtended]="true" [location]="{locationType:'section',position:'main',location:section,index: 0}" index="0"></edit-bar>
 		<section>
 			<p>You haven't added any components or patterns yet.</p>
 		</section>
@@ -23,5 +23,6 @@
 		<pattern-loader *ngIf="entry.pattern" [loader]="entry.pattern.ref"></pattern-loader>
 	</section>
 </section>
+
 
 

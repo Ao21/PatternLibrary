@@ -45,10 +45,17 @@ export class HTMLView implements OnInit {
 
         var dataSrc = isPresent(this.data.HTMLViewData) ? this.data.HTMLViewData : this.data.ref;
         this.patternService.getPattern(dataSrc).then((pattern: any) => {
-            let angularData = pattern.data[0].angular.escaped.replace(/^[^&]*|[^gt;]*$/g, '').replace(/\t/g, '&nbsp;&nbsp;')
-            let htmlData = pattern.data[0].markup.escaped.replace(/^[^&]*|[^gt;]*$/g, '').replace(/\t/g, '&nbsp;&nbsp;')
-            this.tabs.push({ name: 'Angular', type: 'html', data: angularData })
-            this.tabs.push({ name: 'HTML', type: 'html', data: htmlData })
+            if (pattern.data[0].angular) {
+                let angularData = pattern.data[0].angular.escaped.replace(/^[^&]*|[^gt;]*$/g, '').replace(/\t/g, '&nbsp;&nbsp;')
+                 this.tabs.push({ name: 'Angular', type: 'html', data: angularData })
+            }
+            
+            if (pattern.data[0].markup) {
+                let htmlData = pattern.data[0].markup.escaped.replace(/^[^&]*|[^gt;]*$/g, '').replace(/\t/g, '&nbsp;&nbsp;')           
+                this.tabs.push({ name: 'HTML', type: 'html', data: htmlData })
+            }
+          
+           
 
         })
         //var pattern = this.patternService.patternsDict[this.data.HTMLViewData] ? this.patternService.patternsDict[this.data.HTMLViewData] : this.data;
