@@ -133,7 +133,8 @@ function addPattern(pattern, cb) {
 				cb(null, pattern)
 			})
 		} else {
-			if (doc.markup) {
+            if (doc.data[0].markup) {
+                console.log('markup!');
 				if (diffPattern(pattern.markup.escaped, doc.data[0].markup.escaped)) {
 					doc.data.unshift({
 					assets: ['bootstrap','base'],
@@ -169,8 +170,8 @@ function addPattern(pattern, cb) {
 
 function renderSass(path) {
 	var d = q.defer();
-	sass.render({ file: path }, function (err, res) {
-		console.log(err);
+	sass.render({ file: path, includePaths:['/Users/brettr/Development/repos/uiMembership/src/_variables.scss'] }, function (err, res) {
+        if (err) { console.log(err); }
 		d.resolve(res.css.toString());
 	})
 	return d.promise;
@@ -208,7 +209,7 @@ function parseDSS(css) {
 	dss.parser('dom', dssUtils.singleLineParser);
 	dss.parser('url', dssUtils.singleLineParser);
 	dss.parse(css, {}, function (parsedObject) {
-		console.log(parsedObject);
+		//console.log(parsedObject);
 		d.resolve(parsedObject);
 	})
 	return d.promise;
