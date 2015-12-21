@@ -24,10 +24,10 @@ export class PatternPage implements OnActivate {
 		routeParams: RouteParams
 	) {
 		this.params = routeParams.params;
-		this.patternService.getPatterns((patterns) => {
-				let pattern = patterns[this.params['pattern']];
+		this.patternService.getPatterns().then(() => {
+				let pattern = this.patternService.patternsDict[this.params['pattern']];
 			if (pattern) {
-				this.pattern = pattern;
+                this.pattern = pattern;
 			} else {
 				this.router.navigateByUrl('/');
 			}

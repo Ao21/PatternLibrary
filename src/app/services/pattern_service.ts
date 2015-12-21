@@ -5,83 +5,105 @@ import { Http, Headers } from 'angular2/http';
 @Injectable()
 export class PatternService {
 
-	url: string = 'http://localhost:8080/api/pattern';
-	_patterns: any;
-	_patternsDict: any = [];
+    url: string = 'http://localhost:8080/api/pattern';
+    _patterns: any;
+    _patternsDict: any = [];
 
-	constructor(public http: Http) {
-		this.getPatterns().then();
-	}
-	
-	getAll() {
-		return new Promise((res, rej) => {
-			return this.http.get(this.url).subscribe(
-				data => {
-					res(data);
-				},
-				err => {
-					rej(err);
-				}
-			)
-		})
-	}
-	
-	get patternsDict() {
-		return this._patternsDict;
-	}
-	
-	getPattern(pattern) {
-		if(this._patternsDict){}
-	}
+    constructor(public http: Http) {
+        this.getPatterns().then();
+    }
 
-	
-	get patterns() {
-		return this._patterns;
-	}
+    getAll() {
+        return new Promise((res, rej) => {
+            return this.http.get(this.url).subscribe(
+                data => {
+                    res(data);
+                },
+                err => {
+                    rej(err);
+                }
+            )
+        })
+    }
 
-	getPatterns(cb?) {
-		let promise = new Promise((res, rej) => {
-			this.http.get(this.url).subscribe(
-				data => {
-					_.forEach(data.json(), (e) => {
-						this._patternsDict[e.ref] = e;
-					})
-					this._patterns = data.json();
-					res(data.json());
-					//cb(this._patternsDict, this.patterns);
-				}
-			);
-		})
-		return promise;
-	}
+    get patternsDict() {
+        return this._patternsDict;
+    }
 
-	addPatternUrl(url: string) {
-		var obj = {
-			url: url
-		}
-		var headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		this.http.post(this.url + '/url', JSON.stringify(obj), { headers: headers }).subscribe(
-			res => {
-				if (res.status === 200) {
-					//console.log(res.json());
-				} else {
-					//console.log(res);
-				}
+    getPattern(pattern) {
+        let promise = new Promise((res, rej) => {
+            if (this._patternsDict) {
+                res(this._patternsDict[pattern]);
+            } else {
+                this.getPatternsFromApi((e) => {
+                    res(this._patternsDict[pattern]);
+                })
+            }
+        })
+        return promise;
+
+    }
 
 
-			},
-			err => {
-				//console.log(err);
-			}
-		)
-	}
+    get patterns() {
+        return this._patterns;
+    }
 
-	checkPattern() {
-		this.http.get(this.url).subscribe(
-			res=> {
-				//console.log(res);	
-			}
-		);
-	}
+    getPatterns(cb?) {
+        let promise = new Promise((res, rej) => {
+            this.http.get(this.url).subscribe(
+                data => {
+                    _.forEach(data.json(), (e) => {
+                        this._patternsDict[e.ref] = e;
+                    })
+                    this._patterns = data.json();
+                    res(data.json());
+                    //cb(this._patternsDict, this.patterns);
+                }
+            );
+        })
+        return promise;
+    }
+
+    addPatternUrl(url: string) {
+        var obj = {
+            url: url
+        }
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post(this.url + '/url', JSON.stringify(obj), { headers: headers }).subscribe(
+            res => {
+                if (res.status === 200) {
+                    //console.log(res.json());
+                } else {
+                    //console.log(res);
+                }
+
+
+            },
+            err => {
+                //console.log(err);
+            }
+        )
+    }
+
+    getPatternsFromApi(cb) {
+        this.http.get(this.url).subscribe(
+            data => {
+                _.forEach(data.json(), (e) => {
+                    this._patternsDict[e.ref] = e;
+                })
+                this._patterns = data.json();
+                cb(this._patternsDict, this.patterns);
+            }
+        );
+    }
+
+    checkPattern() {
+        this.http.get(this.url).subscribe(
+            res=> {
+                //console.log(res);	
+            }
+        );
+    }
 }

@@ -20,10 +20,11 @@ export class TextBlock implements OnInit {
 	constructor(
 		public sectionStore: SectionStore
 	) { }
-	init() {
+    init() {
+        
 	}
 	ngOnInit() {
-		console.log(this);
+		//console.log(this);
 	}
 	
 	save(data) {

@@ -7,11 +7,13 @@ var Section = new mongoose.Schema({
 	modifiedOn: { type: Date, default: Date.now },
 	// Component Info
 	name: String,
-	url: { type: String, unique: true },
+    url: { type: String, unique: true },
+    position: String,
 	data: [{
 		component: { type: Schema.Types.ObjectId, ref: 'SectionComponents' },
 		pattern: { type: Schema.Types.ObjectId, ref: 'Patterns' },
-		index: Number,
+        index: Number,
+        position: String,
 		data: {}
 	}]
 	// Layout Info

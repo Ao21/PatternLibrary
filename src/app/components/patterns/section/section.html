@@ -1,4 +1,4 @@
-<section id="main" class="">
+<section id="main" class="contextBar--isActive">
 	<h1>{{section.name}}</h1>
 	<div *ngIf="!sectionData || sectionData.length == 0">
 		<edit-bar [isExtended]="true" [location]="{locationType:'section',location:section,index: 0}" index="0"></edit-bar>
@@ -7,13 +7,21 @@
 		</section>
 		
 	</div>
-	<section *ngFor="#entry of sectionData, #i = index" class="component ">
+	<section *ngFor="#entry of sectionData | orderBy:'index' | filter:{ 'position': 'main' }, #i = index" class="component ">
 		<action-bar [section-component]="entry"></action-bar>
-		<edit-bar [section-component]="entry" [location]="{locationType:'section',location:section,index: i+1}" [index]="i"></edit-bar>
+		<edit-bar [section-component]="entry" [location]="{locationType:'section',position:'main',location:section,index: i+1}" [index]="i"></edit-bar>
 		<component-loader *ngIf="entry.component" [section-component]="entry" [config]="entry.component.config"></component-loader>
 		<pattern-loader *ngIf="entry.pattern" [loader]="entry.pattern.ref"></pattern-loader>
 	</section>
 	
+</section>
+<section id="contextualBar">
+    <section *ngFor="#entry of sectionData | orderBy:'index' | filter:{ 'position': 'sidebar' }, #i = index" class="component ">
+		<action-bar [section-component]="entry"></action-bar>
+		<edit-bar [section-component]="entry" [location]="{locationType:'section',position:'sidebar',location:section,index: i+1}" [index]="i"></edit-bar>
+		<component-loader *ngIf="entry.component" [section-component]="entry" [config]="entry.component.config"></component-loader>
+		<pattern-loader *ngIf="entry.pattern" [loader]="entry.pattern.ref"></pattern-loader>
+	</section>
 </section>
 
 

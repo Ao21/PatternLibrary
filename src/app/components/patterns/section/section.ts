@@ -40,9 +40,8 @@ export class Section {
 		this.sectionStore.getSection(this.routeParams.params['url']).subscribe(
 			res => {
 				this.section = res.json();
-				this.sectionData = this.section.data;
+                this.sectionData = this.section.data;
 				this.sectionStore.setActiveSection(this.section);
-				//console.log(this.sectionData);
 				this.subscribe();
 			},
 			err => {

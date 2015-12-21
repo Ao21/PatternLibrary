@@ -52,6 +52,7 @@ export class SectionStore extends Store {
 	addComponent(component, location) {
         component.sectionId = location.location._id;
         component.index = location.index;
+        component.position = location.position;
 		this.sectionService.addComponent(component).subscribe(
 			(res) => {
 				this.update('activeSection', res.json(), 'section');
@@ -85,6 +86,7 @@ export class SectionStore extends Store {
 	addPattern(pattern, location) {
         pattern.sectionId = location.location._id;
         pattern.index = location.index;
+        pattern.position = location.position;
 		this.sectionService.addPattern(pattern).subscribe(
 			res => {
 				this.update('activeSection', res.json(), 'section');

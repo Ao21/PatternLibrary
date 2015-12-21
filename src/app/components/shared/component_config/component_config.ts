@@ -43,7 +43,9 @@ export class ComponentConfig implements OnInit {
 		this.form = this.fb.group(this.ctrl)
 		this.form.valueChanges.subscribe(
 			(res) =>
-			{ console.log(res); }
+			{ 
+                //console.log(res);
+            }
 		)
 	}
 
@@ -52,7 +54,6 @@ export class ComponentConfig implements OnInit {
 		this.sectionStore.updateComponent(this.sectionComponent._id, data);
 	}
 	close() {
-		console.log(this.sectionComponent._id);
 		this.sectionStore.removeComponent(this.sectionComponent._id);
 	}
 }
