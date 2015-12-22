@@ -11,7 +11,7 @@ export interface Section{
 @Injectable()
 export class SectionService {
 
-	url: string = 'http://localhost:8080/api/section';
+	url: string = 'http://localhost:3000/api/section';
 	
 
 	constructor(

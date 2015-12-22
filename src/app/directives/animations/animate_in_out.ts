@@ -1,5 +1,5 @@
 import {Directive, ElementRef} from 'angular2/core';
-import {AnimationBuilder, Animation, BrowserDetails} from 'angular2/animate';
+import {AnimationBuilder} from 'angular2/src/animate/animation_builder';
 
 @Directive({
 	selector: '[animate-inout]',
@@ -12,7 +12,6 @@ import {AnimationBuilder, Animation, BrowserDetails} from 'angular2/animate';
 export class AnimateInOut{
 	constructor(
 		public el: ElementRef,
-		browserDetails: BrowserDetails,
 		public build: AnimationBuilder
 	) {
 		let animation = build.css();

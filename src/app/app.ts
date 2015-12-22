@@ -15,9 +15,9 @@ import { DOM, DomAdapter } from 'angular2/platform/common_dom';
 import {Section,CreateSectionPage, Dashboard, ImportPage, AddPage, PatternPage} from './components/patterns/patterns_modules';
 import {Dispatcher} from './common/dispatcher';
 
-import {AssetsService} from './services/services_modules.ts';
+import {AssetsService} from './services/services_modules';
 
-let styles = require('./app.scss');
+let styles = require('./app.css');
 let template = require('./app.html');
 
 @Component({

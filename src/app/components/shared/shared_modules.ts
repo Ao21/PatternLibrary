@@ -8,13 +8,13 @@ import {ColourDisplayer} from './colour_displayer/colour_displayer'
 import {FontDisplayer} from './font_displayer/font_displayer';
 import {DropZone} from './drop_zone/drop_zone';
 import {AddPattern} from './add_pattern/add_pattern';
-import {AddComponent} from './add_component/add_component.ts';
-import {FormComponent} from './form_component/form_component.ts';
+import {AddComponent} from './add_component/add_component';
+import {FormComponent} from './form_component/form_component';
 import {TextEdit} from './text_edit/text_edit';
 import {TextBlock} from './text_block/text_block';
 import {UrlCreatorInput} from './url_creator/url_creator';
-import {ComponentConfig} from './component_config/component_config.ts';
-import {AutoComplete, AutocompleteOption} from './autocomplete/autocomplete_modules.ts';
+import {ComponentConfig} from './component_config/component_config';
+import {AutoComplete, AutocompleteOption} from './autocomplete/autocomplete_modules';
 import {ActionBar} from './action_bar/action_bar';
 
 export * from './top_nav/top_nav';
@@ -27,16 +27,17 @@ export * from './colour_displayer/colour_displayer'
 export * from './font_displayer/font_displayer';
 export * from './drop_zone/drop_zone';
 export * from './add_pattern/add_pattern';
-export * from './add_component/add_component.ts';
-export * from './form_component/form_component.ts';
+export * from './add_component/add_component';
+export * from './form_component/form_component';
 export * from './text_edit/text_edit';
 export * from './text_block/text_block';
 export * from './url_creator/url_creator';
-export * from './component_config/component_config.ts';
-export * from './autocomplete/autocomplete_modules.ts';
+export * from './component_config/component_config';
+export * from './autocomplete/autocomplete_modules';
 export * from './action_bar/action_bar';
 
 export var SHARED_COMPONENTS: Array<any> = [
+    
 	AutoComplete,
 	AutocompleteOption,
 	TopNav,
@@ -47,7 +48,7 @@ export var SHARED_COMPONENTS: Array<any> = [
 	Comments,
 	ColourDisplayer,
 	FontDisplayer,
-	DropZone,
+	//DropZone,
 	AddPattern,
 	AddComponent,
 	FormComponent,

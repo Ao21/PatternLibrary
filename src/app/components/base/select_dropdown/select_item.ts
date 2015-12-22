@@ -1,7 +1,7 @@
 import { Component, Inject, View, Optional, Host, forwardRef } from 'angular2/core';
 import {SelectDropdown} from './select_dropdown_modules';
 let template = require('./select_item.html');
-let styles = require('./select_item.scss');
+let styles = require('./select_item.css');
 
 @Component({
 	selector: 'select-item',

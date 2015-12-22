@@ -6,10 +6,10 @@ import {AutocompleteOption} from '././autocomplete_option';
 
 import {FilterPipe} from './../../../pipes/filter';
 
-import {AutoCompleteService}from './../../../services/services_modules.ts';
+import {AutoCompleteService}from './../../../services/services_modules';
 
 let template = require('./autocomplete.html');
-let styles = require('./autocomplete.scss');
+let styles = require('./autocomplete.css');
 
 
 @Component({

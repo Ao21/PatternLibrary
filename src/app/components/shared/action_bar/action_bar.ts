@@ -1,9 +1,9 @@
 import { Component, ElementRef, View, OnInit } from 'angular2/core';
-import {UIStore, SectionStore} from './../../../stores/stores_modules.ts';
-import {AnimationBuilder} from 'angular2/animate';
+import {UIStore, SectionStore} from './../../../stores/stores_modules';
+import {AnimationBuilder} from 'angular2/src/animate/animation_builder';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 let template = require('./action_bar.html');
-let styles = require('./action_bar.scss');
+let styles = require('./action_bar.css');
 
 @Component({
 	selector: 'action-bar',
@@ -19,7 +19,7 @@ let styles = require('./action_bar.scss');
 })
 export class ActionBar implements OnInit {
 	sectionComponent: any;
-	actions: any = [];
+    actions: any;
 	isVisible: any;
 	isActionVisible: any = false;
 	class;
@@ -32,21 +32,26 @@ export class ActionBar implements OnInit {
 	}
 
     ngOnInit() {
+        this.init();
+    }
+    
+    init() {
         if (this.sectionComponent) {
 			this.uiStore.subscribe('actionBar', state=> {
-				this.actions = [];
+				let newActions = [];
                 let vis = false;
                 _.forIn(state.get(['actionBar', this.sectionComponent._id]), (value, key) => {
                     vis = value;
 					let obj = {};
 					obj['type'] = key;
 					obj['value'] = value;
-					this.actions.push(obj)
+					newActions.push(obj)
                 });
+                this.actions = newActions;
 				this.isVisible = !vis;
 			})
 		}
-	}
+    }
 
 	trigger(action) {
 		this.uiStore.update(['actionBar', this.sectionComponent._id, action.type], true, 'actionBar');

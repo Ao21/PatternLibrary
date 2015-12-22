@@ -1,10 +1,11 @@
 import { Component, View, ElementRef, OnInit, OnChanges, EventEmitter } from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import { isPresent} from 'angular2/src/facade/lang';
-import {SelectDropdown, SelectItem} from './../../base/base_modules.ts';
-import {UIStore} from './../../../stores/stores_modules.ts';
+import {SelectDropdown, SelectItem} from './../../base/select_dropdown/select_dropdown_modules';
+import {UIStore} from './../../../stores/stores_modules';
+import * as Quill from 'quill';
 let template = require('./text_edit.html');
-let styles = require('./text_edit.scss');
+let styles = require('./text_edit.css');
 
 @Component({
 	selector: 'text-edit',

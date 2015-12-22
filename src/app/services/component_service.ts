@@ -10,7 +10,7 @@ export interface Component {
 @Injectable()
 export class ComponentService {
 
-	url: string = 'http://localhost:8080/api/sectionComponent';
+	url: string = 'http://localhost:3000/api/sectionComponent';
 	_components: any;
 	_componentsDict: any = [];
 

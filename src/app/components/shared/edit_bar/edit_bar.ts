@@ -1,11 +1,11 @@
 import { Component, View, EventEmitter, OnInit, OnDestroy } from 'angular2/core';
-import { Tab, TabsGroup} from './../../base/tab/tab_modules.ts';
-import {AddPattern} from './../add_pattern/add_pattern.ts';
+import { Tab, TabsGroup} from './../../base/tab/tab_modules';
+import {AddPattern} from './../add_pattern/add_pattern';
 import {AddComponent} from './../add_component/add_component';
-import {UIStore} from './../../../stores/stores_modules.ts';
+import {UIStore} from './../../../stores/stores_modules';
 
 let template = require('./edit_bar.html');
-let styles = require('./edit_bar.scss');
+let styles = require('./edit_bar.css');
 
 /*
 	<edit-bar></edit-bar>

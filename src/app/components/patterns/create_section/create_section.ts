@@ -1,11 +1,11 @@
 import { Component, View } from 'angular2/core';
 import { FormBuilder,ControlGroup, Validators, NgForm} from 'angular2/common';
-import { BASE_COMPONENTS} from './../../base/base_modules.ts';
-import { SHARED_COMPONENTS } from './../../shared/shared_modules.ts';
-import { SectionService} from './../../../services/services_modules.ts';
+import { BASE_COMPONENTS} from './../../base/base_modules';
+import { SHARED_COMPONENTS } from './../../shared/shared_modules';
+import { SectionService} from './../../../services/services_modules';
 
 let template = require('./create_section.html');
-let styles = require('./create_section.scss');
+let styles = require('./create_section.css');
 
 @Component({
 	selector: 'create-section-page'

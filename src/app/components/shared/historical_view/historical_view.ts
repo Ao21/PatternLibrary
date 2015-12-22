@@ -1,6 +1,6 @@
 import { Component, View } from 'angular2/core';
 let template = require('./historical_view.html');
-let styles = require('./historical_view.scss');
+let styles = require('./historical_view.css');
 
 
 let fakeDate = [

@@ -1,10 +1,10 @@
 import { Component, View, OnInit, ElementRef, Renderer } from 'angular2/core';
 import { ControlGroup, FormBuilder, NgForm, FORM_DIRECTIVES, NgFormModel, Validators} from 'angular2/common';
-import {FormComponent} from './../form_component/form_component.ts';
+import {FormComponent} from './../form_component/form_component';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import {SectionStore} from './../../../stores/section_store.ts';
+import {SectionStore} from './../../../stores/section_store';
 let template = require('./component_config.html');
-let styles = require('./component_config.scss');
+let styles = require('./component_config.css');
 
 @Component({
 	selector: 'component-config',

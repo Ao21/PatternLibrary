@@ -9,21 +9,9 @@
     <title>Angular2 Seed</title>
 
     <!-- inject:js -->
-    <script src="/lib/systemjs/dist/system.js"></script>
-    <script src="/lib/rxjs/bundles/Rx.js"></script>
-    <script src="/lib/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="/lib/angular2/bundles/angular2.dev.js"></script>
-    <script src="/lib/angular2/bundles/router.dev.js"></script>
-    <script src="/lib/angular2/bundles/http.dev.js"></script>
-    <script src="/lib/angular2/bundles/testing.dev.js"></script>
-    <script src="/lib/lodash/index.js"></script>
-    <script src="/lib/postal/lib/postal.js"></script>
-    <script src="/lib/quill/dist/quill.js"></script>
-    <script src="/lib/interact.js/dist/interact.js"></script>
     <!-- endinject -->
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="/css/app.css">
     <!-- endinject -->
 </head>
 
@@ -32,7 +20,8 @@
 
     <script>
         
-        //        
+        // <!-- @if dev -->
+        
       
         
 		System.config({
@@ -50,8 +39,19 @@
 		System
 			.import('app/bootstrap.js')
 			.catch(console.error.bind(console));
-		//
-		//    </script>
+		// <!-- @endif -->
+
+		// <!-- @if prod -->
+		// System
+		// 	.config({
+		// 		bundles: { 'app/app.js': ['app'] }
+		// 	});
+
+		// System
+		// 	.import('app')
+		// 	.catch(console.error.bind(console));
+		// <!-- @endif -->
+    </script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ import { Http, Headers } from 'angular2/http';
 @Injectable()
 export class AssetsService {
 
-	url: string = 'http://localhost:8080/api/assets';
+	url: string = 'http://localhost:3000/api/assets';
 	_assetsDict: any = [];
 	_cached: boolean = false;
 

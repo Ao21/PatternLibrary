@@ -1,10 +1,10 @@
 import { Component, View} from 'angular2/core';
 import { ControlGroup, FormBuilder, NgForm, FORM_DIRECTIVES, NgFormModel, Validators} from 'angular2/common';
-import { BASE_COMPONENTS} from './../../base/base_modules.ts';
-import { SHARED_COMPONENTS } from './../../shared/shared_modules.ts';
-import {inputEqualsValue} from './../../../directives/validators/input_equals.ts';
+import { BASE_COMPONENTS} from './../../base/base_modules';
+import { SHARED_COMPONENTS } from './../../shared/shared_modules';
+import {inputEqualsValue} from './../../../directives/validators/input_equals';
 let template = require('./import.html');
-let styles = require('./import.scss');
+let styles = require('./import.css');
 
 
 class CheckoutModel {
@@ -19,6 +19,7 @@ class CheckoutModel {
 	styles: [styles],
 	directives: [BASE_COMPONENTS, SHARED_COMPONENTS]
 })	    
+    
 export class ImportPage {
 	userForm: NgForm;
 	form: ControlGroup;

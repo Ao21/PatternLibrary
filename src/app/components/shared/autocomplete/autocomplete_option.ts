@@ -7,7 +7,7 @@ import {Query, QueryList} from 'angular2/core';
 import {AutoComplete} from './autocomplete';
 
 let template = require('./autocomplete_option.html');
-let styles = require('./autocomplete_option.scss');
+let styles = require('./autocomplete_option.css');
 
 @Component({
 	selector: 'autocomplete-option',

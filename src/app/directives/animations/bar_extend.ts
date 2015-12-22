@@ -1,5 +1,5 @@
 import {Directive, ElementRef, OnChanges, OnInit} from 'angular2/core';
-import {AnimationBuilder, Animation, BrowserDetails} from 'angular2/animate';
+import {AnimationBuilder} from 'angular2/src/animate/animation_builder';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 
 @Directive({

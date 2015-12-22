@@ -1,7 +1,7 @@
 import { Component, View, ElementRef } from 'angular2/core';
-import {UIStore} from './../../../stores/stores_modules.ts'
+import {UIStore} from './../../../stores/stores_modules'
 let template = require('./drop_zone.html');
-let styles = require('./drop_zone.scss');
+let styles = require('./drop_zone.css');
 
 @Component({
 	selector: 'drop-zone',

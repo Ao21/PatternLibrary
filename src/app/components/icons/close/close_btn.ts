@@ -1,6 +1,6 @@
 import { Component, View, ElementRef, OnInit } from 'angular2/core';
 let template = require('./close_btn.html');
-let styles = require('./close_btn.scss');
+let styles = require('./close_btn.css');
 
 @Component({
 	selector: 'close-btn'

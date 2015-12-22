@@ -1,11 +1,11 @@
 import { Component, View } from 'angular2/core';
 import {RouteParams, Router, OnActivate} from 'angular2/router';
-import {PatternService} from './../../../services/services_modules.ts';
+import {PatternService} from './../../../services/services_modules';
 import {BASE_COMPONENTS } from '../../../components/base/base_modules';
 import {SHARED_COMPONENTS } from '../../../components/shared/shared_modules';
 
 let template = require('./pattern.html');
-let styles = require('./pattern.scss');
+let styles = require('./pattern.css');
 
 @Component({
 	selector: 'pattern-page'

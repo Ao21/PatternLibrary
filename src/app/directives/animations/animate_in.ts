@@ -1,5 +1,5 @@
 import {Directive, ElementRef, OnChanges} from 'angular2/core';
-import {AnimationBuilder, Animation, BrowserDetails} from 'angular2/animate';
+import {AnimationBuilder} from 'angular2/src/animate/animation_builder';
 
 @Directive({
 	selector: '[animate-in]',
@@ -10,7 +10,6 @@ export class AnimateIn implements OnChanges{
 	isVisible: boolean;
 	constructor(
 		public el: ElementRef,
-		browserDetails: BrowserDetails,
 		public build: AnimationBuilder
 	) {
 		let animation = build.css();

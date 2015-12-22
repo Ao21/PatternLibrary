@@ -1,7 +1,7 @@
 import {Component, View, Query, QueryList, OnInit, ElementRef, EventEmitter } from 'angular2/core';
 import {SelectItem} from './select_item';
 let template = require('./select_dropdown.html');
-let styles = require('./select_dropdown.scss');
+let styles = require('./select_dropdown.css');
 
 @Component({
 	selector: 'select-dropdown',

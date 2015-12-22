@@ -1,8 +1,8 @@
 import { Component, View } from 'angular2/core';
-import { ComponentStore, SectionStore } from './../../../stores/stores_modules.ts';
+import { ComponentStore, SectionStore } from './../../../stores/stores_modules';
 import {ComponentService} from './../../../services/services_modules';
 let template = require('./add_component.html');
-let styles = require('./add_component.scss');
+let styles = require('./add_component.css');
 
 @Component({
 	selector: 'add-component',

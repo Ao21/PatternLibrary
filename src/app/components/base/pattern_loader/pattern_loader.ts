@@ -5,7 +5,7 @@ import { PlaceHolder } from '../placeholder_component/placeholder_component';
 import { PatternService, AssetsService } from './../../../services/services_modules';
 
 let template = require('./pattern_loader.html');
-let styles = require('./pattern_loader.scss');
+let styles = require('./pattern_loader.css');
 @Component({
 	selector: 'pattern-loader',
 	inputs: ['loader']

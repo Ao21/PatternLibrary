@@ -1,7 +1,8 @@
 import {Directive, ElementRef} from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import * as Rx from '@reactivex/rxjs';
-import {UIStore} from './../../stores/stores_modules.ts'
+import {Observable, Subject, ReplaySubject} from 'rxjs/Rx';
+
+import {UIStore} from './../../stores/stores_modules'
 
 
 @Directive({

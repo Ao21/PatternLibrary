@@ -4,27 +4,5 @@
   "ref": "master",
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
-  "installed": {
-    "angular2/angular2.d.ts": {
-      "commit": "fb2b3b1e068c9ff7d8f9b0851c08d37d96c95c38"
-    },
-    "jasmine/jasmine.d.ts": {
-      "commit": "fb2b3b1e068c9ff7d8f9b0851c08d37d96c95c38"
-    },
-    "es6-shim/es6-shim.d.ts": {
-      "commit": "fb2b3b1e068c9ff7d8f9b0851c08d37d96c95c38"
-    },
-    "angular2/http-2.0.0-alpha.39.d.ts": {
-      "commit": "fb2b3b1e068c9ff7d8f9b0851c08d37d96c95c38"
-    },
-    "angular2/router-2.0.0-alpha.39.d.ts": {
-      "commit": "fb2b3b1e068c9ff7d8f9b0851c08d37d96c95c38"
-    },
-    "angular2/test_lib-2.0.0-alpha.39.d.ts": {
-      "commit": "fb2b3b1e068c9ff7d8f9b0851c08d37d96c95c38"
-    },
-    "angular2/angular2-2.0.0-alpha.39.d.ts": {
-      "commit": "fb2b3b1e068c9ff7d8f9b0851c08d37d96c95c38"
-    }
-  }
+  "installed": {}
 }

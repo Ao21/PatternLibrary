@@ -1,6 +1,6 @@
 import { Component, View, ElementRef, OnInit } from 'angular2/core';
 let template = require('./magnifying_glass.html');
-let styles = require('./magnifying_glass.scss');
+let styles = require('./magnifying_glass.css');
 
 @Component({
 	selector: 'mag-glass'

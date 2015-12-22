@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Renderer} from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import * as Rx from '@reactivex/rxjs';
+import {Observable, Subject, ReplaySubject} from 'rxjs/Rx';
 
 /*
 
@@ -22,7 +22,7 @@ export class HoverEdit {
 	) {
 		let element = this._renderer.getNativeElementSync(this._el);
 
-		(<any>Rx).Observable.fromEvent(element, 'mouseover').subscribe(e=> {
+		Observable.fromEvent(element, 'mouseover').subscribe(e=> {
 			this._renderer.setElementClass(this._el,'hoverIsVisible',true);
 				if (this.timeout) {
 					clearTimeout(this.timeout);
@@ -30,7 +30,7 @@ export class HoverEdit {
 
 		});
 		
-		(<any>Rx).Observable.fromEvent(element, 'mouseout').subscribe(e=> {
+		Observable.fromEvent(element, 'mouseout').subscribe(e=> {
 			setTimeout(() => {
 				this._renderer.setElementClass(this._el,'hoverIsVisible',false);
 			}, 700)

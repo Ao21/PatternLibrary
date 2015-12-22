@@ -15,13 +15,13 @@ import {Event, KeyboardEvent} from 'angular2/src/facade/browser';
 import {RadioDispatcher} from './radio_dispatcher';
 import {RadioGroup} from './radio_group';
 
-import {KeyCodes} from './../../../common/keycodes.ts';
+import {KeyCodes} from './../../../common/keycodes';
  
 
 var _uniqueRadioCounter: number = 0;
 
 let template = require('./radio_button.html');
-let styles = require('./radio_button.scss');
+let styles = require('./radio_button.css');
 
 @Component({
   selector: 'radio-button',

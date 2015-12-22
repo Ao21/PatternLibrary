@@ -1,7 +1,7 @@
 import {Inject, Injectable} 	from 'angular2/core';
 import {Store, Dispatcher} 		from '../common/common_modules';
 import {SectionService} from './../services/services_modules';
-
+import * as Baobab from 'boabab';
 let monkey: any = Baobab.monkey;
 
 export class Component {

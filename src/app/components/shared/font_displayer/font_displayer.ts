@@ -1,6 +1,6 @@
 import { Component, View } from 'angular2/core';
 let template = require('./font_displayer.html');
-let styles = require('./font_displayer.scss');
+let styles = require('./font_displayer.css');
 
 /*	
  *	Font Displayer

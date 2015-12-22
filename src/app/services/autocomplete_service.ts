@@ -4,7 +4,7 @@ import { Http, Headers } from 'angular2/http';
 @Injectable()
 export class AutoCompleteService {
 
-	url: string = 'http://localhost:8080/api/search';
+	url: string = 'http://localhost:3000/api/search';
 	_cached: boolean = false;
 
 	constructor(public http: Http) {

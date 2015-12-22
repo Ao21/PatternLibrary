@@ -3,7 +3,7 @@ import {FORM_DIRECTIVES, NgForm} from 'angular2/common';
 import {ObservableWrapper, Promise, PromiseWrapper} from 'angular2/src/facade/async';
 import { Http } from 'angular2/http';
 
-import {SHARED_COMPONENTS} from './../../shared/shared_modules.ts';
+import {SHARED_COMPONENTS} from './../../shared/shared_modules';
 let template = require('./form_loader.html');
 
 @Component({

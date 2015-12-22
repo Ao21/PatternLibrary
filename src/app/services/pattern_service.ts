@@ -5,7 +5,7 @@ import { Http, Headers } from 'angular2/http';
 @Injectable()
 export class PatternService {
 
-    url: string = 'http://localhost:8080/api/pattern';
+    url: string = 'http://localhost:3000/api/pattern';
     _patterns: any;
     _patternsDict: any = [];
 

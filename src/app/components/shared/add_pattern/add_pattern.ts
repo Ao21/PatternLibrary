@@ -1,9 +1,10 @@
 import { Component, View, OnInit } from 'angular2/core';
-import {PatternService} from './../../../services/pattern_service.ts';
+import {PatternService} from './../../../services/pattern_service';
 import {SectionStore} from './../../../stores/stores_modules';
-let template = require('./add_pattern.html');
-let styles = require('./add_pattern.scss');
 
+
+let template = require('./add_pattern.html');
+let styles = require('./add_pattern.css');
 @Component({
 	selector: 'add-pattern',
 	inputs: ['index','location'],

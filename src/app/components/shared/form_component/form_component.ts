@@ -17,7 +17,7 @@ NgForm
 } from 'angular2/common';
 import {AutoComplete, AutocompleteOption} from './../autocomplete/autocomplete_modules';
 let template = require('./form_component.html');
-let styles = require('./form_component.scss');
+let styles = require('./form_component.css');
 
 @Component({
   selector: 'form-component',

@@ -1,7 +1,7 @@
 import { Component, View, ElementRef } from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 let template = require('./quill.html');
-let styles = require('./quill.scss');
+let styles = require('./quill.css');
 
 @Component({
 	selector: 'quill',

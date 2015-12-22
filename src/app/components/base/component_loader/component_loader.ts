@@ -1,13 +1,13 @@
 import { Component, View, OnInit, DynamicComponentLoader, Injector, provide, Renderer, ElementRef, ComponentRef } from 'angular2/core';
 import {ObservableWrapper, Promise, PromiseWrapper} from 'angular2/src/facade/async';
 import { Http } from 'angular2/http';
-import {ComponentConfig} from './../../shared/component_config/component_config.ts';
+import {ComponentConfig} from './../../shared/component_config/component_config';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 
-import * as BaseModules from './../base_modules.ts';
-import {SHARED_COMPONENTS} from './../../shared/shared_modules.ts';
+import * as BaseModules from './../base_modules';
+import {SHARED_COMPONENTS} from './../../shared/shared_modules';
 let template = require('./component_loader.html');
-let styles = require('./component_loader.scss');
+let styles = require('./component_loader.css');
 
 @Component({
 	selector: 'component-loader',

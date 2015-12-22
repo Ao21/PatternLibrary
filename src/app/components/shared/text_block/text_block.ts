@@ -1,8 +1,8 @@
 import { Component, View, OnInit } from 'angular2/core';
-import {TextEdit} from './../text_edit/text_edit.ts';
-import {SectionStore} from './../../../stores/section_store.ts';
+import {TextEdit} from './../text_edit/text_edit';
+import {SectionStore} from './../../../stores/section_store';
 let template = require('./text_block.html');
-let styles = require('./text_block.scss');
+let styles = require('./text_block.css');
 
 
 @Component({

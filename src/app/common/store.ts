@@ -1,5 +1,6 @@
 import { Dispatcher } from './dispatcher';
 import { isPresent } from 'angular2/src/facade/lang';
+import * as Baobab from 'boabab';
 
 export let DefaultStore: any = {};
 

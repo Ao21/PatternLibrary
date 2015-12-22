@@ -1,8 +1,8 @@
 import { Component, View, OnInit, ElementRef } from 'angular2/core';
 import {NgStyle} from 'angular2/common';
-import { UIStore } from './../../../stores/stores_modules.ts'
+import { UIStore } from './../../../stores/stores_modules'
 let template = require('./colour_displayer.html');
-let styles = require('./colour_displayer.scss');
+let styles = require('./colour_displayer.css');
 
 /*	
  *	Colour Displayer

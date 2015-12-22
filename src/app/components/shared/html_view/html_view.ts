@@ -1,18 +1,19 @@
 import { Component, View, ElementRef, OnInit } from 'angular2/core';
 import {isPresent} from 'angular2/src/facade/lang';
-import { Tab, TabsGroup } from '../../base/base_modules';
+import { Tab, TabsGroup } from './../../base/tab/tab_modules';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import {PatternService} from './../../../services/pattern_service.ts';
-import {Highlight} from './../../../pipes/highlight.ts';
+import {PatternService} from './../../../services/pattern_service';
+import {Highlight} from './../../../pipes/highlight';
 let template = require('./html_view.html');
-let styles = require('./html_view.scss');
+let styles = require('./html_view.css');
 
 /*
 	<html-view [data]="patternREf"></html-view>
 */
 @Component({
     selector: 'html-view',
-    inputs: ['data']
+    inputs: ['data'],
+    providers: []
 })
 @View({
     template: template,
