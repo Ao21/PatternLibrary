@@ -12,5 +12,5 @@ module.exports = {
   
   client: '/src/public',
   
-  whiteList: ['http://localhost:3000']
+  whiteList: ['http://localhost:3000','http://localhost:8080']
 };

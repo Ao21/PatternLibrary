@@ -30,7 +30,8 @@ export class AddPattern implements OnInit {
 		});
 	}
 	
-	addPattern(pattern, location) {
+    addPattern(pattern) {
+        console.log(this.location);
 		this.sectionStore.addPattern(pattern, this.location);
 	}
 	
