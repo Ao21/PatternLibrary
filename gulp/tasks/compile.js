@@ -37,13 +37,13 @@ gulp.task('scss', function () {
         includePaths: [
             'node_modules/bourbon/app/assets/stylesheets',
             'node_modules/bourbon-neat/app/assets/stylesheets',
-			`src/app`
-		],
-		outputStyle: 'compressed', // nested (default), expanded, compact, compressed
-		indentType: 'tab',
-		indentWidth: 1,
-		linefeed: 'lf'
-	};
+            `src/app`
+        ],
+        outputStyle: 'compressed', // nested (default), expanded, compact, compressed
+        indentType: 'tab',
+        indentWidth: 1,
+        linefeed: 'lf'
+    };
     return gulp.src('src/styles/**/*.scss', { base: 'src/styles' })
         .pipe($.rename({ dirname: '' }))
         .pipe($.if(env.dev, $.sourcemaps.init()))
@@ -59,13 +59,13 @@ gulp.task('scss-internal', function () {
         includePaths: [
             'node_modules/bourbon/app/assets/stylesheets',
             'node_modules/bourbon-neat/app/assets/stylesheets',
-			'src/app'
-		],
-		outputStyle: 'compressed', // nested (default), expanded, compact, compressed
-		indentType: 'tab',
-		indentWidth: 1,
-		linefeed: 'lf'
-	};
+            'src/app'
+        ],
+        outputStyle: 'compressed', // nested (default), expanded, compact, compressed
+        indentType: 'tab',
+        indentWidth: 1,
+        linefeed: 'lf'
+    };
     return gulp.src(paths.libs.scss, { base: 'src/styles' })
         .pipe($.if(env.dev, $.sourcemaps.init()))
         .pipe($.sass(SASS_CONFIG))
@@ -88,7 +88,7 @@ var tsProject = $.typescript.createProject('tsconfig.json', {
 });
 
 gulp.task('ts', function () {
-    var tsResult = gulp.src(['typings/**/*.ts','src/app/**/*.ts'])
+    var tsResult = gulp.src(['typings/**/*.ts', 'src/app/**/*.ts'])
         .pipe($.preprocess({
             context: env
         }))
@@ -109,21 +109,23 @@ gulp.task('ts', function () {
 })
 
 
-gulp.task('html', function () { 
+gulp.task('html', function () {
     return gulp.src('src/app/**/*.html')
-        .pipe(gulp.dest('dist/app'));
+        .pipe(gulp.dest('dist/app'))
+        .pipe($.connect.reload());
 })
 
 gulp.task('assets', function () {
-   
-        
-      return gulp.src('src/images/**/*')
+
+
+    return gulp.src('src/images/**/*')
         .pipe($.size({ title: 'images' }))
-        .pipe(gulp.dest('dist/images'));
+        .pipe(gulp.dest('dist/images'))
+        .pipe($.connect.reload());
 })
 
 gulp.task('libs', function () {
-    
+
     gulp.src(paths.libs.bower, { base: './bower_components' })
         .pipe($.if(env.prod, $.concat('vendors.js')))
         .pipe($.if(env.prod, $.uglify()))
@@ -140,7 +142,7 @@ gulp.task('libs', function () {
 
 gulp.task('index', function () {
 
-    var source = gulp.src(paths.includes, { read: false});
+    var source = gulp.src(paths.includes, { read: false });
 
     return gulp.src('src/index.html')
         .pipe($.inject(source, {
@@ -161,13 +163,23 @@ gulp.task('watch', function () {
         'src/app/**/*.css',
         'src/app/**/*.html'
     ]).pipe($.watch(['src/app/**/*.ts', 'src/app/**/*.css', 'src/app/**/*.html'], function () {
-        runSequence('html','tsLint', 'ts')
+        runSequence('html', 'tsLint', 'ts')
+        }))
+    
+    gulp.src(['src/images/**']).pipe($.watch(['src/images/**'], function () {
+        runSequence('assets')
     }))
 
     gulp.src([
         'src/styles/**/*.scss',
     ]).pipe($.watch('src/styles/**/*.scss', function () {
-        runSequence( 'scss','scss-internal')
+        runSequence('scss')
+    }))
+
+    gulp.src([
+        'src/app/**/*.scss',
+    ]).pipe($.watch('src/app/**/*.scss', function () {
+        runSequence('scss-internal')
     }))
 
     gulp.src([

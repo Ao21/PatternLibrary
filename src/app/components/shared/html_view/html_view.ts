@@ -41,9 +41,10 @@ export class HTMLView implements OnInit {
     clickToCopy() {
         //console.log(DOM.querySelector(this._el.nativeElement,'.content .selected code').innerText);
     }
+    
 
     init() {
-
+        this.tabs = [];
         var dataSrc = isPresent(this.data.HTMLViewData) ? this.data.HTMLViewData : this.data.ref;
         this.patternService.getPattern(dataSrc).then((pattern: any) => {
             if (pattern.data[0].angular) {

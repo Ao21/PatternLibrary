@@ -12,5 +12,28 @@ top-nav {
     
     background-color: #fcfafd;
     
+
+    .search{
+        float: left;
+        height: 100%;
+        position: relative;
+        width: $SideBarWidth;
+        svg {
+            max-height: 21px;
+                position: absolute;
+    left: 50%;
+    width: 21px;
+    transform: translate(-50%,-50%);
+    top: 50%;
+            path {
+                fill: $darkBlue;
+            }
+            
+        }
+    }
+
+
+    
+    
     
 }

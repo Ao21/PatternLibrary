@@ -15,12 +15,12 @@ var errorHandler = require('errorhandler');
 var path = require('path');
 var config = require('./environment');
 
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var webpackConfig = require('../../webpack.config');
+// var webpack = require('webpack');
+// var WebpackDevServer = require('webpack-dev-server');
+// var webpackConfig = require('../../webpack.config');
 
 
-var _ = require('underscore');
+var _ = require('lodash');
 
 function allowCrossDomain(req, res, next) {
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
